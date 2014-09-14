@@ -57,7 +57,7 @@ public class SimpleWrite {
                         outputStream = serialPort.getOutputStream();
                     } catch (IOException e) {}
                     try {
-                        serialPort.setSerialPortParams(9600,
+                        serialPort.setSerialPortParams(19600,
                             SerialPort.DATABITS_8,
                             SerialPort.STOPBITS_1,
                             SerialPort.PARITY_NONE);

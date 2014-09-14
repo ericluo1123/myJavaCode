@@ -45,25 +45,29 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 	SerialPort serialPort;
 	Thread readThread;
 
-	JTextField txtOutput = new JTextField("");
+	private JTextField txtOutput = new JTextField("");
+	private int Count=32;
 	
 	public static void main(String[] args) {
 
 		portList = CommPortIdentifier.getPortIdentifiers();
-		System.out.println(portList.hasMoreElements());
-		System.out.println(CommPortIdentifier.getPortIdentifiers());
-		System.out.println(1);
+		//System.out.println(portList.hasMoreElements());
+		//System.out.println(CommPortIdentifier.getPortIdentifiers());
+		
 
 		while (portList.hasMoreElements()) {
 			portId = (CommPortIdentifier) portList.nextElement();
-
+//			System.out.println(portId);
+//			System.out.println(portId.getPortType());
+//			System.out.println(portId.getName());
+//			System.out.println(CommPortIdentifier.PORT_SERIAL);
+//			System.out.println(CommPortIdentifier.PORT_PARALLEL);
+		
 			if (portId.getPortType() == CommPortIdentifier.PORT_SERIAL) {
-				if (portId.getName().equals("COM8")) {
+				System.out.println(portId.getName());
+				if (portId.getName().equals("COM7")) {
 					// if (portId.getName().equals("/dev/term/a/")) {
 					SimpleRead reader = new SimpleRead();
-					System.out.println(portId.getName());
-					System.out.println(portId.getPortType());
-
 				}
 			}
 		}
@@ -92,6 +96,12 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		}
 		serialPort.notifyOnDataAvailable(true);
 		try {
+			serialPort.setFlowControlMode(serialPort.FLOWCONTROL_RTSCTS_OUT);
+		} catch (UnsupportedCommOperationException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
 			serialPort.setSerialPortParams(19200, SerialPort.DATABITS_8,
 					SerialPort.STOPBITS_1, SerialPort.PARITY_NONE);
 		} catch (UnsupportedCommOperationException e) {
@@ -99,7 +109,9 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		}
 		readThread = new Thread(this);
 		readThread.start();
+	
 	}
+	
 
 	private void initialize() {
 		// TODO Auto-generated method stub
@@ -140,20 +152,25 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
 			break;
 		case SerialPortEvent.DATA_AVAILABLE:
-			byte[] readBuffer = new byte[20];
-
+			byte[] readBuffer = new byte[1];	
 			try {
 				while (inputStream.available() > 0) {
-					int numBytes = inputStream.read(readBuffer);
+					//int numBytes = inputStream.read(readBuffer);
+					inputStream.read(readBuffer);
+					//System.out.print(readBuffer+",");
 				}
-			//	System.out.print(new String(readBuffer));
-				System.out.print((int)(readBuffer[0]));
-				int i=(int)(readBuffer[0]);
-				String str =Integer.toString(i);
-				txtOutput.setText(str);
+				char[] getBuffer=new char[1];
+				for(int i=0;i<getBuffer.length;i++){
+					getBuffer[i]=(char) readBuffer[i];
+				}
+				String showStr=new String(getBuffer);
+				
+				System.out.print(showStr+",");
+				
 			} catch (IOException e) {
 				System.out.println(e.toString());
 			}
+			
 			break;
 		}
 	}
