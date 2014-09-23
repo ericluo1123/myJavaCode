@@ -1,4 +1,5 @@
 package myMain;
+
 /*
  * @(#)SimpleRead.java	1.12 98/06/25 SMI
  *
@@ -131,7 +132,8 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 
 	public void run() {
 		try {
-			Thread.sleep(20000);
+			Thread.sleep(10);
+			System.out.println("sleep");
 		} catch (InterruptedException e) {
 			System.out.println(e.toString());
 		}
@@ -150,38 +152,44 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
 			break;
 		case SerialPortEvent.DATA_AVAILABLE:
-			byte[] readBuffer = new byte[100];
+			byte[] readBuffer = new byte[50];
 			try {
 				while (inputStream.available() > 0) {
+					while (inputStream.available() == 0)
+						;
 					int numBytes = inputStream.read(readBuffer);
 					// inputStream.read(readBuffer);
 					// System.out.print(numBytes+",");
+					
 				}
+
 				Character getBuffer = (char) readBuffer[0];
 				String getChar = getBuffer.toString();
-			
-				getStr = getStr + getChar;
-				System.out.println(getStr);
-			
+				getStr += getChar;
+				
 				if (getBuffer == ',') {
-					if (Count < 32) {
-						Count++;
-					} else {
-						System.out.println(Count);
-						
-						String[] showStr = getStr.split(",");
-						System.out.println(showStr.length);
-						for (int i = 0; i < showStr.length - 1; i++) {
-							// int[] getInt=new int[]{};
-							// getInt[i]=Integer.parseInt(showStr[i]);
-							// System.out.println(getInt[0]);
-							//System.out.println(showStr.toString());
-
-						}
+					//System.out.print(getStr);		
+					String[] showStr = getStr.split(",");
+					int value = Integer.parseInt(showStr[0]);
+					System.out.print(value + ",");
+					getStr = "";
+					Count++;
+					if (Count == 32) {
 						Count = 0;
-						getStr = "";
+						System.out.println();
 					}
 				}
+
+				// String[] showStr = getStr.split(",");
+				// System.out.println("showStr length" + showStr.length);
+				// for (int i = 0; i < showStr.length - 1; i++) {
+				// // int[] getInt=new int[]{};
+				// // getInt[i]=Integer.parseInt(showStr[i]);
+				// // System.out.println(getInt[0]);
+				// // System.out.println(showStr.toString());
+				//
+				// }
+				// getStr = "";
 
 				// char[] getBuffer =new char[readBuffer.length];
 				// for(int i = 0;i<getBuffer.length;i++){
@@ -201,7 +209,6 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 			} catch (IOException e) {
 				System.out.println(e.toString());
 			}
-
 			break;
 		}
 	}
