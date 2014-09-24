@@ -176,9 +176,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "a3d1a9689f1c8e36ab64fb669df92076771c42f2",
-    "jarFileModificationDate": "2014-07-29T20:50:34.842+08:00",
-    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\ext\\sunmscapi.jar",
+    "jarFileFingerprint": "e1cffe12249ca60d0a6ab6772c632df9942ab417",
+    "jarFileModificationDate": "1998-11-15T16:00:04+08:00",
+    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\ext\\comm.jar",
     "javaRuntime": true
   },
   {
@@ -189,9 +189,9 @@
       "micro": 0,
       "qualifier": ""
     },
-    "jarFileFingerprint": "e1cffe12249ca60d0a6ab6772c632df9942ab417",
-    "jarFileModificationDate": "1998-11-15T16:00:04+08:00",
-    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\ext\\comm.jar",
+    "jarFileFingerprint": "a3d1a9689f1c8e36ab64fb669df92076771c42f2",
+    "jarFileModificationDate": "2014-07-29T20:50:34.842+08:00",
+    "location": "C:\\Program Files (x86)\\Java\\jre7\\lib\\ext\\sunmscapi.jar",
     "javaRuntime": true
   },
   {

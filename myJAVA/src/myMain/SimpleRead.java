@@ -97,7 +97,7 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		}
 		serialPort.notifyOnDataAvailable(true);
 		try {
-			serialPort.setFlowControlMode(serialPort.FLOWCONTROL_RTSCTS_OUT);
+			serialPort.setFlowControlMode(serialPort.FLOWCONTROL_XONXOFF_IN);
 		} catch (UnsupportedCommOperationException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
@@ -152,59 +152,44 @@ public class SimpleRead implements Runnable, SerialPortEventListener {
 		case SerialPortEvent.OUTPUT_BUFFER_EMPTY:
 			break;
 		case SerialPortEvent.DATA_AVAILABLE:
-			byte[] readBuffer = new byte[50];
+			byte[] readBuffer = new byte[1];
 			try {
-				while (inputStream.available() > 0) {
-					while (inputStream.available() == 0)
-						;
-					int numBytes = inputStream.read(readBuffer);
-					// inputStream.read(readBuffer);
-					// System.out.print(numBytes+",");
-					
-				}
 
-				Character getBuffer = (char) readBuffer[0];
-				String getChar = getBuffer.toString();
-				getStr += getChar;
-				
-				if (getBuffer == ',') {
-					//System.out.print(getStr);		
-					String[] showStr = getStr.split(",");
-					int value = Integer.parseInt(showStr[0]);
-					System.out.print(value + ",");
-					getStr = "";
+				// while (inputStream.available() > 0) {
+				int numBytes = inputStream.read(readBuffer);
+				// }
+				// System.out.print(new String(readBuffer));
+				// Character getBuffer = (char) readBuffer[0];
+				// String getChar = new String(readBuffer);//
+				// getBuffer.toString();
+				getStr += new String(readBuffer);
+				char[] ch = new String(readBuffer).toCharArray();
+				if (ch[0] == ',') {
 					Count++;
 					if (Count == 32) {
 						Count = 0;
+						String[] str = getStr.split(",");
+//						int[] getInt = new int[str.length];
+						 //char[] charArray = getStr.toCharArray();
+						 
+						for (int i = 0; i < str.length; i++) {
+//							getInt[i] = Integer.parseInt(str[i]);
+//							System.out.print(getInt[i] + ",");
+							//System.out.print(charArray[i]+ ",");
+							System.out.print(i+"byte"+ "\t");
+						}
 						System.out.println();
+						for (int i = 0; i < str.length; i++) {
+//							getInt[i] = Integer.parseInt(str[i]);
+//							System.out.print(getInt[i] + ",");
+							//System.out.print(charArray[i]+ ",");
+							System.out.print(str[i].toUpperCase()+ "\t");
+						}
+						System.out.println("end");
+						getStr = "";
 					}
+
 				}
-
-				// String[] showStr = getStr.split(",");
-				// System.out.println("showStr length" + showStr.length);
-				// for (int i = 0; i < showStr.length - 1; i++) {
-				// // int[] getInt=new int[]{};
-				// // getInt[i]=Integer.parseInt(showStr[i]);
-				// // System.out.println(getInt[0]);
-				// // System.out.println(showStr.toString());
-				//
-				// }
-				// getStr = "";
-
-				// char[] getBuffer =new char[readBuffer.length];
-				// for(int i = 0;i<getBuffer.length;i++){
-				// getBuffer[i]=(char) readBuffer[i];
-				// }
-				// String showStr = new String(getBuffer);
-				//
-				// // System.out.print(showStr);
-				// String[] getStr = showStr.split(",");
-				// int[] getValue=new int[getStr.length];
-				// for (int i = 0; i <getStr.length; i++) {
-				// getValue[i]=Integer.parseInt(getStr[i]);
-				// System.out.print(getValue[i]+",");
-				// }
-				// //System.out.print();
 
 			} catch (IOException e) {
 				System.out.println(e.toString());
