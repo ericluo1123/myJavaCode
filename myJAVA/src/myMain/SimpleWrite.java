@@ -1,4 +1,5 @@
 package myMain;
+
 /*
  * @(#)SimpleWrite.java	1.12 98/06/25 SMI
  *
@@ -63,19 +64,23 @@ public class SimpleWrite {
 					} catch (IOException e) {
 					}
 					try {
-						serialPort.setSerialPortParams(19600,
+						serialPort.setSerialPortParams(19200,
 								SerialPort.DATABITS_8, SerialPort.STOPBITS_1,
 								SerialPort.PARITY_NONE);
 					} catch (UnsupportedCommOperationException e) {
 					}
 					try {
-						
-						System.out.println(messageString);	
-						System.out.println(messageString.getBytes());
-//						outputStream.write(messageString.getBytes());
-						outputStream.write(0b0001);
-						//outputStream.close();;
+						int[] var = new int[32];
+						for (int i = 0; i < 32; i++) {
+							var[i]=i;
+							System.out.println(var[i]);
+							outputStream.write(var[i]);
+						}
 
+						// System.out.println(messageString);
+						// outputStream.write(messageString.getBytes());
+						// outputStream.write(var);
+						// outputStream.close();
 
 					} catch (IOException e) {
 					}
