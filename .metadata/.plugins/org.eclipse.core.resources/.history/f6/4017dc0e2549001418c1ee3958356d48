@@ -1,0 +1,45 @@
+package myJava;
+
+import java.awt.EventQueue;
+
+import javax.swing.JFrame;
+import java.awt.Rectangle;
+
+public class mySwingApplication {
+
+	private JFrame frmMyapplication;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					mySwingApplication window = new mySwingApplication();
+					window.frmMyapplication.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the application.
+	 */
+	public mySwingApplication() {
+		initialize();
+	}
+
+	/**
+	 * Initialize the contents of the frame.
+	 */
+	private void initialize() {
+		frmMyapplication = new JFrame();
+		frmMyapplication.setTitle("myApplication");
+		frmMyapplication.setBounds(100, 100, 300, 400);
+		frmMyapplication.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+}
