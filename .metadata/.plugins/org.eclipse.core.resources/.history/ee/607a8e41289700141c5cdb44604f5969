@@ -88,7 +88,7 @@ public class mySwingApplication {
 		// check windows version
 
 		osVersion = System.getProperty("os.version");
-		System.out.println("os Version = " + osVersion);
+		System.out.println("os Version ="+osVersion);
 		if (osVersion != null) {
 			Float version = Float.valueOf(osVersion);
 			if (version.floatValue() <= 4.0) {
@@ -97,7 +97,7 @@ public class mySwingApplication {
 				isClassicWindows = false;
 			}
 		}
-		System.out.println("is Classic Windows = " + isClassicWindows);
+		System.out.println(osVersion);
 
 		System.out.println(WindowConstants.DO_NOTHING_ON_CLOSE);
 		System.out.println(WindowConstants.HIDE_ON_CLOSE);

@@ -38,6 +38,8 @@ import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JLayeredPane;
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
+import javax.swing.UIManager;
+import javax.swing.UnsupportedLookAndFeelException;
 import javax.swing.WindowConstants;
 
 import java.awt.Font;
@@ -53,12 +55,15 @@ import javax.swing.JTree;
 
 public class mySwingApplication {
 
-	private String osVersion;
-	private static final JMenuBar JMenuBar  = null;
+
+	private static final JMenuBar JMenuBar = null;
 	private JFrame frmMyapplication;
 	private Dimension screenSize;
 	private Dimension framSize;
 
+	
+	private Boolean isClassicWindows;
+	private String osVersion;
 	/**
 	 * Launch the application.
 	 */
@@ -80,25 +85,48 @@ public class mySwingApplication {
 	 */
 	public mySwingApplication() {
 		initialize();
+
+//		check windows version
 		
-		
-		
-		
-		
-		
-		
-		
-		System.out.println(frmMyapplication.getContentPane());
+		osVersion = System.getProperty("os.version");
+		System.out.println(osVersion);
+		if(osVersion!= null){
+			Float version =Float.valueOf(osVersion);
+			if(version.floatValue() <= 4.0){
+				isClassicWindows=true;
+			}else{
+				isClassicWindows=false;
+			}
+		}
+
 		System.out.println(WindowConstants.DO_NOTHING_ON_CLOSE);
 		System.out.println(WindowConstants.HIDE_ON_CLOSE);
 		System.out.println(frmMyapplication.getJMenuBar());
+	
+
+		// try {
+		// UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+		// } catch (ClassNotFoundException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// } catch (InstantiationException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// } catch (IllegalAccessException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// } catch (UnsupportedLookAndFeelException e) {
+		// // TODO Auto-generated catch block
+		// e.printStackTrace();
+		// }
+
 	}
 
 	/**
 	 * Initialize the contents of the frame.
 	 */
 	private void initialize() {
-		osVersion =System.getProperty("os.version");
+
 		frmMyapplication = new JFrame();
 		frmMyapplication.setTitle("myApplication");
 		frmMyapplication.setBounds(100, 100, 300, 400);
@@ -121,12 +149,11 @@ public class mySwingApplication {
 		// 將視窗定位於螢幕中央
 		frmMyapplication.setLocation((screenSize.width - framSize.width) / 2,
 				(screenSize.height - framSize.height) / 2);
-		
-	
+
 	}
-	
-	//於視窗上繪製字串
-	public void paint(Graphics g){
+
+	// 於視窗上繪製字串
+	public void paint(Graphics g) {
 		g.drawString("Hello World Swing", 50, 50);
 	}
 }
