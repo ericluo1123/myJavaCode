@@ -122,70 +122,44 @@ public class mySwingApplication {
 	}
 
 	/**
-	 * Initialize the contents of the frame.
 	 */
+	 * Initialize the contents of the frame.
 	private void initialize() {
 
 		/**
-		 * JFrame實體化
+		 * Frame操作
 		 */
-		// JFrame實體化
+		//JFrame實體化
 		frmMyapplication = new JFrame();
-
-		/**
-		 * Title operation
-		 */
-		// set title
+		
+		//set title
 		frmMyapplication.setTitle("myApplication");
-		// get title
-		frmMyapplication.getTitle();
-
-		/**
-		 * bounds(邊界)(x,y,width,height)
-		 */
-		// set bounds邊界()
+		
+		//set bounds邊界()
 		frmMyapplication.setBounds(100, 100, 300, 400);
-		// reshape enable/disable
-		frmMyapplication.setResizable(false);
-		// reshape 調整視窗大小
-		// frmMyapplication.reshape(x, y, width, height);
-		// set size
-		// frmMyapplication.setSize(Dimension d);
-		// frmMyapplication.setSize(width, height);
-
-		/**
-		 * IconImage 設定視窗使用的圖像
-		 */
-		// frmMyapplication.setIconImage(image);
-
-		/**
-		 * close button operation
-		 * 
-		 * WindowConstants.DISPOSE_ON_CLOSE 關閉視窗時，移除視窗並釋放佔用資源
-		 * WindowConstants.DO_NOTHING_ON_CLOSE 關閉視窗時，不執行任何動作
-		 * WindowConstants.EXIT_ON_CLOSE 關閉視窗時，移除視窗
-		 * WindowConstants.HIDE_ON_CLOSE 關閉視窗時，隱藏視窗
-		 */
-		// set default close button operation
+		
+		//set default close button operation
+		//WindowConstants.DISPOSE_ON_CLOSE 		關閉視窗時，移除視窗並釋放佔用資源
+		//WindowConstants.DO_NOTHING_ON_CLOSE 	關閉視窗時，不執行任何動作
+		//WindowConstants.EXIT_ON_CLOSE 		關閉視窗時，移除視窗
+		//WindowConstants.HIDE_ON_CLOSE			關閉視窗時，隱藏視窗
 		frmMyapplication.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		// get default close button operation
+		//get default close button operation
 		frmMyapplication.getDefaultCloseOperation();
 
-		/**
-		 * content pane
-		 */
-		// set content pane
+		//set content pane
 		frmMyapplication.getContentPane().setLayout(null);
 
+		
 		/**
 		 * 將視窗定位於螢幕中央
 		 */
 		// 取得螢幕大小
 		screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-
+		
 		// 取得視窗大小
 		framSize = frmMyapplication.getSize();
-
+		
 		// 比較螢幕與視窗的高度
 		if (framSize.height > screenSize.height) {
 			framSize.height = screenSize.height;
@@ -198,21 +172,6 @@ public class mySwingApplication {
 		frmMyapplication.setLocation((screenSize.width - framSize.width) / 2,
 				(screenSize.height - framSize.height) / 2);
 
-		/**
-		 * dispose 移除視窗，並釋放佔用資源
-		 */
-		// dispose
-		// frmMyapplication.dispose();
-
-		/**
-		 * remove 移除視窗中指定之物件
-		 */
-		// frmMyapplication.remove(comp);
-
-		/**
-		 * windows visible
-		 */
-		frmMyapplication.setVisible(true);
 	}
 
 	// 於視窗上繪製字串

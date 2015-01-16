@@ -145,13 +145,8 @@ public class mySwingApplication {
 		 */
 		// set bounds邊界()
 		frmMyapplication.setBounds(100, 100, 300, 400);
-		// reshape enable/disable
-		frmMyapplication.setResizable(false);
 		// reshape 調整視窗大小
 		// frmMyapplication.reshape(x, y, width, height);
-		// set size
-		// frmMyapplication.setSize(Dimension d);
-		// frmMyapplication.setSize(width, height);
 
 		/**
 		 * IconImage 設定視窗使用的圖像
@@ -171,9 +166,6 @@ public class mySwingApplication {
 		// get default close button operation
 		frmMyapplication.getDefaultCloseOperation();
 
-		/**
-		 * content pane
-		 */
 		// set content pane
 		frmMyapplication.getContentPane().setLayout(null);
 
@@ -208,11 +200,6 @@ public class mySwingApplication {
 		 * remove 移除視窗中指定之物件
 		 */
 		// frmMyapplication.remove(comp);
-
-		/**
-		 * windows visible
-		 */
-		frmMyapplication.setVisible(true);
 	}
 
 	// 於視窗上繪製字串
