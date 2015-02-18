@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;frmMyapplication&apos; in &apos;myJava.mySwingApplication&apos; to &apos;frame&apos;&#x0D;&#x0A;- Original project: &apos;myJAVA&apos;&#x0D;&#x0A;- Original element: &apos;myJava.mySwingApplication.frmMyapplication&apos;&#x0D;&#x0A;- Renamed element: &apos;myJava.mySwingApplication.frame&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;frmMyapplication&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src&lt;myJava{mySwingApplication.java[mySwingApplication^frmMyapplication" name="frame" references="true" setter="false" stamp="1422542669816" textual="false" version="1.0"/>
+</session>
