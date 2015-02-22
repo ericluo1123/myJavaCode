@@ -1,0 +1,22 @@
+package myJava.myMain;
+
+import window.my_Window;
+
+public class my_Window {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		my_Window window = new my_Window();
+	}
+
+	my_Window() {
+		initWindow();
+
+	}
+
+	private void initWindow() {
+		// TODO Auto-generated method stub
+		my_Window jfrm = new my_Window();
+	}
+
+}

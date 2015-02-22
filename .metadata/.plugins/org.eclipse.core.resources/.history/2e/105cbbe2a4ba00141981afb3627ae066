@@ -1,0 +1,53 @@
+import java.awt.*;
+
+import javax.swing.*;
+import javax.swing.UIManager;
+import javax.swing.plaf.metal.MetalLookAndFeel;
+
+public class BorderLayoutDemo extends javax.swing.JApplet {
+    
+  // 建構函式
+  public BorderLayoutDemo() {
+  }
+
+  public void init() {
+    // 取得Java Applet之參數
+    int hGap = Integer.parseInt(getParameter("hGap"));
+    int vGap = Integer.parseInt(getParameter("vGap"));
+
+    BorderLayout borderlayout = new BorderLayout();
+
+    // 設定物件間的水平間距
+    borderlayout.setHgap(hGap);
+    // 設定物件間的垂直間距
+    borderlayout.setVgap(vGap);
+
+    // 定義JApplet之Layout Manager為BorderLayout
+    this.setLayout(borderlayout);
+
+    JButton jbutton1 = new JButton("EAST");
+    JButton jbutton2 = new JButton("SOUTH");
+    JButton jbutton3 = new JButton("WEST");
+    JButton jbutton4 = new JButton("NORTH");
+    JButton jbutton5 = new JButton("CENTER");
+
+    // 將物件加至JApplet中
+    this.add(jbutton1, BorderLayout.EAST);
+    this.add(jbutton2, BorderLayout.SOUTH);
+    this.add(jbutton3, BorderLayout.WEST);
+    this.add(jbutton4, BorderLayout.NORTH);
+    this.add(jbutton5, BorderLayout.CENTER);
+  }
+
+  static {
+    UIManager.put("swing.boldMetal", Boolean.FALSE);
+    //JDialog.setDefaultLookAndFeelDecorated(true);
+    //JFrame.setDefaultLookAndFeelDecorated(true);
+    //Toolkit.getDefaultToolkit().setDynamicLayout(true);
+
+    try {
+      UIManager.setLookAndFeel("javax.swing.plaf.metal.MetalLookAndFeel");
+    }
+    catch(Exception e) {}
+  }
+}
