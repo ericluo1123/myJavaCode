@@ -1,4 +1,4 @@
-package window;
+package myWindow;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -54,8 +54,10 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.SoftBevelBorder;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 import javax.swing.JLayeredPane;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class window {
 
@@ -63,6 +65,8 @@ public class window {
 
 	String[] item = { "Metal", "CDE/Motif", "Windows XP", "Windows Classic",
 			"Nimbus", "GTK+", "Mac" };
+
+	String LookAndFeel_Select = item[2];
 
 	String[] item2 = { "Frame", "Plain Dialog", "File Chooser Dialog",
 			"Color Chooser Dialog", "Information Dialog", "Question Dialog",
@@ -75,8 +79,6 @@ public class window {
 			"com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel",
 			"com.sun.java.swing.plaf.gtk.GTKLookAndFeel",
 			"com.sun.java.swing.plaf.mac.MacLookAndFeel" };
-
-	String LookAndFeel_Select = item[2];
 
 	private JFrame jfrm;
 	private JButton btnWEST;
@@ -122,13 +124,18 @@ public class window {
 	private JRadioButtonMenuItem rdbtnmntmSandstone;
 	private JRadioButtonMenuItem rdbtnmntmContrast;
 	private JPanel panel;
-	private JPanel panel_1;
-	private JLabel lblCard;
-	private JLabel lblCard_1;
-	private JLabel lblCard_2;
-	private JLabel lblCard_3;
-	private JLabel lblCard_4;
-	private CardLayout cardLayout;
+	private JButton btnNewButton;
+	private JButton btnNewButton_1;
+	private JButton btnNewButton_2;
+	private JButton btnNewButton_3;
+	private JButton btnNewButton_4;
+	private JButton btnNewButton_5;
+	private JButton btnNewButton_6;
+	private JButton btnNewButton_7;
+
+	private GridBagLayout gbl_panel;
+
+	private GridBagConstraints gbConstraints;
 
 	public window() {
 
@@ -159,23 +166,28 @@ public class window {
 				// 設定Nimbus Look and Feel
 				UIManager
 						.setLookAndFeel(new com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel());
-			} else if (LookAndFeel_Select == null) {
-				// 設定與作業系統有關之Look and Feel
-				UIManager.setLookAndFeel(UIManager
-						.getSystemLookAndFeelClassName());
 			}
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
-			e.printStackTrace();
 		}
+
+		// if (LookAndFeel_Select == null) {
+		// // 設定與作業系統有關之Look and Feel
+		// try {
+		// UIManager.setLookAndFeel(UIManager
+		// .getSystemLookAndFeelClassName());
+		// } catch (UnsupportedLookAndFeelException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		// }
+
 		/**
 		 * JFrame
 		 */
 		// 建立選單列
 		jfrm = new JFrame();
-		jfrm.setBounds(new Rectangle(0, 0, 350, 150));
+		jfrm.setBounds(new Rectangle(0, 0, 250, 250));
 		// 取得目前之Class Loader
 		cl = jfrm.getClass().getClassLoader();
 		if (LookAndFeel_Select.equals(item[0])) {
@@ -208,68 +220,137 @@ public class window {
 		jfrm.setLocation((screenSize.width - frameSize.width) / 2,
 				(screenSize.height - frameSize.height) / 2);
 		jfrm.setVisible(true);
-
-		panel = new JPanel();
-		panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		panel.setLocation(0, 5);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 30));
-
-		btnWEST = new JButton("First");
-		btnWEST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cardLayout.first(panel_1);
-			}
-		});
-		panel.add(btnWEST);
 		jfrm.getContentPane().setLayout(null);
 		jfrm.getContentPane().setLayout(
 				new BoxLayout(jfrm.getContentPane(), BoxLayout.PAGE_AXIS));
-		jfrm.getContentPane().add(panel);
 
-		btnEAST = new JButton("Previous");
-		panel.add(btnEAST);
-		btnEAST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cardLayout.previous(panel_1);
-				;
-			}
-		});
+		panel = new JPanel();
+		gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[] { 78, 78, 78, 0 };
+		gbl_panel.rowHeights = new int[] { 47, 47, 47, 47, 0 };
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0 };
+		gbl_panel.rowWeights = new double[] { 0.0, 0.0, 0.0, 0.0,
+				Double.MIN_VALUE };
+		panel.setLayout(gbl_panel);
+		gbConstraints = new GridBagConstraints();
+		gbConstraints.fill = GridBagConstraints.BOTH;
+		
 
-		panel_1 = new JPanel();
-		panel.add(panel_1);
-//		cardLayout = new CardLayout(20, 5);
-		panel_1.setLayout(new CardLayout(20, 5));
-
-		lblCard = new JLabel("Card1");
-		panel_1.add(lblCard, "name_15419897563592");
-
-		lblCard_1 = new JLabel("Card2");
-		panel_1.add(lblCard_1, "name_15419916319948");
-
-		lblCard_2 = new JLabel("Card3");
-		panel_1.add(lblCard_2, "name_15448190883221");
-
-		lblCard_3 = new JLabel("Card4");
-		panel_1.add(lblCard_3, "name_15455654092038");
-
-		lblCard_4 = new JLabel("Card5");
-		panel_1.add(lblCard_4, "name_15469743875859");
-
-		btnNORTH = new JButton("Next");
+		btnNORTH = new JButton("(1,0)");
 		btnNORTH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.next(panel_1);
+
 			}
 		});
-		panel.add(btnNORTH);
 
-		btnSOUTH = new JButton("Last");
+		btnSOUTH = new JButton("(0,0)");
 		btnSOUTH.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				cardLayout.last(panel_1);
+				btnSOUTH.setEnabled(false);
 			}
 		});
-		panel.add(btnSOUTH);
+		GridBagConstraints gbc_btnSOUTH = new GridBagConstraints();
+		gbc_btnSOUTH.fill = GridBagConstraints.BOTH;
+		gbc_btnSOUTH.insets = new Insets(0, 0, 5, 5);
+		gbc_btnSOUTH.gridx = 0;
+		gbc_btnSOUTH.gridy = 0;
+		panel.add(btnSOUTH, gbc_btnSOUTH);
+
+		btnWEST = new JButton("(0,1)");
+		btnWEST.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				btnSOUTH.setEnabled(true);
+			}
+		});
+		GridBagConstraints gbc_btnWEST = new GridBagConstraints();
+		gbc_btnWEST.fill = GridBagConstraints.BOTH;
+		gbc_btnWEST.insets = new Insets(0, 0, 5, 5);
+		gbc_btnWEST.gridx = 1;
+		gbc_btnWEST.gridy = 0;
+		panel.add(btnWEST, gbc_btnWEST);
+
+		btnEAST = new JButton("(0,2)");
+		GridBagConstraints gbc_btnEAST = new GridBagConstraints();
+		gbc_btnEAST.fill = GridBagConstraints.BOTH;
+		gbc_btnEAST.insets = new Insets(0, 0, 5, 0);
+		gbc_btnEAST.gridx = 2;
+		gbc_btnEAST.gridy = 0;
+		panel.add(btnEAST, gbc_btnEAST);
+		btnEAST.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+
+			}
+		});
+		GridBagConstraints gbc_btnNORTH = new GridBagConstraints();
+		gbc_btnNORTH.fill = GridBagConstraints.BOTH;
+		gbc_btnNORTH.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNORTH.gridx = 0;
+		gbc_btnNORTH.gridy = 1;
+		panel.add(btnNORTH, gbc_btnNORTH);
+
+		btnNewButton = new JButton("(1,1)");
+		GridBagConstraints gbc_btnNewButton = new GridBagConstraints();
+		gbc_btnNewButton.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton.gridx = 1;
+		gbc_btnNewButton.gridy = 1;
+		panel.add(btnNewButton, gbc_btnNewButton);
+
+		btnNewButton_1 = new JButton("(1,2)");
+		GridBagConstraints gbc_btnNewButton_1 = new GridBagConstraints();
+		gbc_btnNewButton_1.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_1.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_1.gridx = 2;
+		gbc_btnNewButton_1.gridy = 1;
+		panel.add(btnNewButton_1, gbc_btnNewButton_1);
+
+		btnNewButton_2 = new JButton("(2,0)");
+		GridBagConstraints gbc_btnNewButton_2 = new GridBagConstraints();
+		gbc_btnNewButton_2.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_2.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton_2.gridx = 0;
+		gbc_btnNewButton_2.gridy = 2;
+		panel.add(btnNewButton_2, gbc_btnNewButton_2);
+
+		btnNewButton_3 = new JButton("(2,1)");
+		GridBagConstraints gbc_btnNewButton_3 = new GridBagConstraints();
+		gbc_btnNewButton_3.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_3.insets = new Insets(0, 0, 5, 5);
+		gbc_btnNewButton_3.gridx = 1;
+		gbc_btnNewButton_3.gridy = 2;
+		panel.add(btnNewButton_3, gbc_btnNewButton_3);
+
+		btnNewButton_4 = new JButton("(2,2)");
+		GridBagConstraints gbc_btnNewButton_4 = new GridBagConstraints();
+		gbc_btnNewButton_4.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_4.insets = new Insets(0, 0, 5, 0);
+		gbc_btnNewButton_4.gridx = 2;
+		gbc_btnNewButton_4.gridy = 2;
+		panel.add(btnNewButton_4, gbc_btnNewButton_4);
+
+		btnNewButton_5 = new JButton("(3,0)");
+		GridBagConstraints gbc_btnNewButton_5 = new GridBagConstraints();
+		gbc_btnNewButton_5.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_5.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton_5.gridx = 0;
+		gbc_btnNewButton_5.gridy = 3;
+		panel.add(btnNewButton_5, gbc_btnNewButton_5);
+
+		btnNewButton_6 = new JButton("(3,1)");
+		GridBagConstraints gbc_btnNewButton_6 = new GridBagConstraints();
+		gbc_btnNewButton_6.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_6.insets = new Insets(0, 0, 0, 5);
+		gbc_btnNewButton_6.gridx = 1;
+		gbc_btnNewButton_6.gridy = 3;
+		panel.add(btnNewButton_6, gbc_btnNewButton_6);
+
+		btnNewButton_7 = new JButton("(3,2)");
+		GridBagConstraints gbc_btnNewButton_7 = new GridBagConstraints();
+		gbc_btnNewButton_7.fill = GridBagConstraints.BOTH;
+		gbc_btnNewButton_7.gridx = 2;
+		gbc_btnNewButton_7.gridy = 3;
+		panel.add(btnNewButton_7, gbc_btnNewButton_7);
+		jfrm.getContentPane().add(panel);
 
 		/**
 		 * JMenuBar

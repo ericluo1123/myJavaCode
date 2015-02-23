@@ -55,6 +55,9 @@ import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.SoftBevelBorder;
 import javax.swing.JLayeredPane;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class window {
 
@@ -78,10 +81,6 @@ public class window {
 			"com.sun.java.swing.plaf.mac.MacLookAndFeel" };
 
 	private JFrame jfrm;
-	private JButton btnWEST;
-	private JButton btnEAST;
-	private JButton btnSOUTH;
-	private JButton btnNORTH;
 	private JMenuBar menuBar;
 	private JMenu mnFile;
 	private JMenuItem mntmExit;
@@ -121,16 +120,13 @@ public class window {
 	private JRadioButtonMenuItem rdbtnmntmSandstone;
 	private JRadioButtonMenuItem rdbtnmntmContrast;
 	private JPanel panel;
-	private JButton btnNewButton;
-	private JButton btnNewButton_1;
-	private JButton btnNewButton_2;
-	private JButton btnNewButton_3;
-	private JButton btnNewButton_4;
-	private JButton btnNewButton_5;
-	private JButton btnNewButton_6;
-	private JButton btnNewButton_7;
 
-	private GridLayout gridLayout;
+	private GridBagLayout gbl_panel;
+
+	private GridBagConstraints gbConstraints;
+	private JButton button;
+	private JButton button_1;
+	private JButton button_2;
 
 	public window() {
 
@@ -220,66 +216,41 @@ public class window {
 				new BoxLayout(jfrm.getContentPane(), BoxLayout.PAGE_AXIS));
 
 		panel = new JPanel();
-		// GridLayout(rows, column , hgap, vgap);
-		gridLayout = new GridLayout(4, 3, 0, 0);
-		panel.setLayout(gridLayout);
-
-		btnWEST = new JButton("(0,1)");
-		btnWEST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				btnSOUTH.setEnabled(true);
-			}
-		});
-
-		btnSOUTH = new JButton("(0,0)");
-		btnSOUTH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				btnSOUTH.setEnabled(false);
-			}
-		});
-		panel.add(btnSOUTH);
-		panel.add(btnWEST);
+		gbl_panel = new GridBagLayout();
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0};
+		gbl_panel.rowWeights = new double[] { 0.0};
+		panel.setLayout(gbl_panel);
+		gbConstraints = new GridBagConstraints();
+		gbConstraints.fill = GridBagConstraints.BOTH;
+		gbConstraints.weightx = 1.0;
 		jfrm.getContentPane().add(panel);
+		
+		button = new JButton("1");
+		GridBagConstraints gbc_button = new GridBagConstraints();
+		gbc_button.anchor = GridBagConstraints.NORTH;
+		gbc_button.fill = GridBagConstraints.HORIZONTAL;
+		gbc_button.insets = new Insets(0, 0, 0, 5);
+		gbc_button.gridx = 0;
+		gbc_button.gridy = 0;
+		panel.add(button, gbc_button);
+		gbl_panel.setConstraints(button, gbConstraints);
+		
+		button_1 = new JButton("2");
+		GridBagConstraints gbc_button_1 = new GridBagConstraints();
+		gbc_button_1.insets = new Insets(0, 0, 0, 5);
+		gbc_button_1.gridx = 1;
+		gbc_button_1.gridy = 0;
+		panel.add(button_1, gbc_button_1);
+		gbl_panel.setConstraints(button_1, gbConstraints);
+		
+		gbConstraints.gridwidth = GridBagConstraints.REMAINDER; 
+		button_2 = new JButton("3");
+		GridBagConstraints gbc_button_2 = new GridBagConstraints();
+		gbc_button_2.gridx = 2;
+		gbc_button_2.gridy = 0;
+		panel.add(button_2, gbc_button_2);
+		gbl_panel.setConstraints(button_2, gbConstraints);
 
-		btnEAST = new JButton("(0,2)");
-		panel.add(btnEAST);
-		btnEAST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-
-			}
-		});
-
-		btnNORTH = new JButton("(1,0)");
-		btnNORTH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-
-			}
-		});
-		panel.add(btnNORTH);
-
-		btnNewButton = new JButton("(1,1)");
-		panel.add(btnNewButton);
-
-		btnNewButton_1 = new JButton("(1,2)");
-		panel.add(btnNewButton_1);
-
-		btnNewButton_2 = new JButton("(2,0)");
-		panel.add(btnNewButton_2);
-
-		btnNewButton_3 = new JButton("(2,1)");
-		panel.add(btnNewButton_3);
-
-		btnNewButton_4 = new JButton("(2,2)");
-		panel.add(btnNewButton_4);
-
-		btnNewButton_5 = new JButton("(3,0)");
-		panel.add(btnNewButton_5);
-
-		btnNewButton_6 = new JButton("(3,1)");
-		panel.add(btnNewButton_6);
-
-		btnNewButton_7 = new JButton("(3,2)");
-		panel.add(btnNewButton_7);
 
 		/**
 		 * JMenuBar

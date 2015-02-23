@@ -14,3 +14,5 @@
 1424651847841	Rename package 'myGriaphics'
 1424658465601	Rename local variable 'graphics'
 1424659016600	Convert local variable 'g' to field
+1424706101562	Convert local variable 'gbl_panel' to field
+1424706142813	Convert local variable 'gbConstraints' to field

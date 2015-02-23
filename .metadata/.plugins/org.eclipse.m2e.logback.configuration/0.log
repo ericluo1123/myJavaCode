@@ -142,3 +142,4 @@ Caused by: java.nio.channels.UnresolvedAddressException: null
 	at com.ning.http.client.providers.netty.NettyAsyncHttpProvider.doConnect(NettyAsyncHttpProvider.java:902) ~[async-http-client-1.6.5.jar:na]
 	... 15 common frames omitted
 2015-02-23 08:40:16,121 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-02-23 23:49:17,538 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8

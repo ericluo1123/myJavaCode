@@ -1,4 +1,4 @@
-package window;
+package myWindow;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
@@ -54,8 +54,10 @@ import javax.swing.border.LineBorder;
 import java.awt.Color;
 import javax.swing.border.TitledBorder;
 import javax.swing.border.SoftBevelBorder;
-import org.eclipse.wb.swing.FocusTraversalOnArray;
 import javax.swing.JLayeredPane;
+import java.awt.GridBagLayout;
+import java.awt.GridBagConstraints;
+import java.awt.Insets;
 
 public class window {
 
@@ -63,6 +65,8 @@ public class window {
 
 	String[] item = { "Metal", "CDE/Motif", "Windows XP", "Windows Classic",
 			"Nimbus", "GTK+", "Mac" };
+
+	String LookAndFeel_Select = item[2];
 
 	String[] item2 = { "Frame", "Plain Dialog", "File Chooser Dialog",
 			"Color Chooser Dialog", "Information Dialog", "Question Dialog",
@@ -76,13 +80,7 @@ public class window {
 			"com.sun.java.swing.plaf.gtk.GTKLookAndFeel",
 			"com.sun.java.swing.plaf.mac.MacLookAndFeel" };
 
-	String LookAndFeel_Select = item[2];
-
 	private JFrame jfrm;
-	private JButton btnWEST;
-	private JButton btnEAST;
-	private JButton btnSOUTH;
-	private JButton btnNORTH;
 	private JMenuBar menuBar;
 	private JMenu mnFile;
 	private JMenuItem mntmExit;
@@ -122,15 +120,13 @@ public class window {
 	private JRadioButtonMenuItem rdbtnmntmSandstone;
 	private JRadioButtonMenuItem rdbtnmntmContrast;
 	private JPanel panel;
-	private JPanel panel_1;
-	private JLabel lblCard;
-	private JLabel lblCard_1;
-	private JLabel lblCard_2;
-	private JLabel lblCard_3;
-	private JLabel lblCard_4;
 
+	private GridBagLayout gbl_panel;
 
-	private CardLayout cardLayout1;
+	private GridBagConstraints gbConstraints;
+	private JButton button;
+	private JButton button_1;
+	private JButton button_2;
 
 	public window() {
 
@@ -161,23 +157,28 @@ public class window {
 				// 設定Nimbus Look and Feel
 				UIManager
 						.setLookAndFeel(new com.sun.java.swing.plaf.nimbus.NimbusLookAndFeel());
-			} else if (LookAndFeel_Select == null) {
-				// 設定與作業系統有關之Look and Feel
-				UIManager.setLookAndFeel(UIManager
-						.getSystemLookAndFeelClassName());
 			}
 		} catch (UnsupportedLookAndFeelException e) {
 			e.printStackTrace();
-		} catch (ClassNotFoundException | InstantiationException
-				| IllegalAccessException e) {
-			e.printStackTrace();
 		}
+
+		// if (LookAndFeel_Select == null) {
+		// // 設定與作業系統有關之Look and Feel
+		// try {
+		// UIManager.setLookAndFeel(UIManager
+		// .getSystemLookAndFeelClassName());
+		// } catch (UnsupportedLookAndFeelException e1) {
+		// // TODO Auto-generated catch block
+		// e1.printStackTrace();
+		// }
+		// }
+
 		/**
 		 * JFrame
 		 */
 		// 建立選單列
 		jfrm = new JFrame();
-		jfrm.setBounds(new Rectangle(0, 0, 350, 150));
+		jfrm.setBounds(new Rectangle(0, 0, 250, 250));
 		// 取得目前之Class Loader
 		cl = jfrm.getClass().getClassLoader();
 		if (LookAndFeel_Select.equals(item[0])) {
@@ -210,68 +211,44 @@ public class window {
 		jfrm.setLocation((screenSize.width - frameSize.width) / 2,
 				(screenSize.height - frameSize.height) / 2);
 		jfrm.setVisible(true);
-
-		panel = new JPanel();
-		panel.setCursor(Cursor.getPredefinedCursor(Cursor.DEFAULT_CURSOR));
-		panel.setLocation(0, 5);
-		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 30));
-
-		btnWEST = new JButton("First");
-		btnWEST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cardLayout.first(panel_1);
-			}
-		});
-		panel.add(btnWEST);
 		jfrm.getContentPane().setLayout(null);
 		jfrm.getContentPane().setLayout(
 				new BoxLayout(jfrm.getContentPane(), BoxLayout.PAGE_AXIS));
+
+		panel = new JPanel();
+		gbl_panel = new GridBagLayout();
+		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0};
+		gbl_panel.rowWeights = new double[] { 0.0};
+		panel.setLayout(gbl_panel);
+		gbConstraints = new GridBagConstraints();
+		gbConstraints.fill = GridBagConstraints.BOTH;
+		gbConstraints.weightx = 1.0;
 		jfrm.getContentPane().add(panel);
-
-		btnEAST = new JButton("Previous");
-		panel.add(btnEAST);
-		btnEAST.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent arg0) {
-				cardLayout.previous(panel_1);
-				;
-			}
-		});
-
-		panel_1 = new JPanel();
-		panel.add(panel_1);
-		private CardLayout cardLayout; = new CardLayout(20, 5);
-		panel_1.setLayout(cardLayout);
-
-		lblCard = new JLabel("Card1");
-		panel_1.add(lblCard, "name_17624001385212");
-
-		lblCard_1 = new JLabel("Card2");
-		panel_1.add(lblCard_1, "name_17624053337231");
-
-		lblCard_2 = new JLabel("Card3");
-		panel_1.add(lblCard_2, "name_17624078950609");
-
-		lblCard_3 = new JLabel("Card4");
-		panel_1.add(lblCard_3, "name_17624099857560");
-
-		lblCard_4 = new JLabel("Card5");
-		panel_1.add(lblCard_4, "name_17624118332457");
-
-		btnNORTH = new JButton("Next");
-		btnNORTH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cardLayout.next(panel_1);
-			}
-		});
-		panel.add(btnNORTH);
-
-		btnSOUTH = new JButton("Last");
-		btnSOUTH.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
-				cardLayout.last(panel_1);
-			}
-		});
-		panel.add(btnSOUTH);
+		
+		button = new JButton("1");
+		GridBagConstraints gbc_button = new GridBagConstraints();
+		gbc_button.anchor = GridBagConstraints.NORTH;
+		gbc_button.fill = GridBagConstraints.HORIZONTAL;
+		gbc_button.insets = new Insets(0, 0, 0, 5);
+		gbc_button.gridx = 0;
+		gbc_button.gridy = 0;
+		panel.add(button, gbc_button);
+		gbl_panel.setConstraints(button, gbConstraints);
+		
+		button_1 = new JButton("2");
+		GridBagConstraints gbc_button_1 = new GridBagConstraints();
+		gbc_button_1.insets = new Insets(0, 0, 0, 5);
+		gbc_button_1.gridx = 1;
+		gbc_button_1.gridy = 0;
+		panel.add(button_1, gbc_button_1);
+		
+		button_2 = new JButton("3");
+		GridBagConstraints gbc_button_2 = new GridBagConstraints();
+		gbc_button_2.gridx = 2;
+		gbc_button_2.gridy = 0;
+		panel.add(button_2, gbc_button_2);
+		
+		gbConstraints.gridwidth = GridBagConstraints.REMAINDER; 
 
 		/**
 		 * JMenuBar
