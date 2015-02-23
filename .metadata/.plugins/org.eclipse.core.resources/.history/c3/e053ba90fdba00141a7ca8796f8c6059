@@ -1,0 +1,16 @@
+package myGraphics;
+
+import java.awt.Graphics;
+import java.awt.Paint;
+
+import javax.swing.JFrame;
+
+public class gra_Graphics {
+	public gra_Graphics(JFrame jfrm) {
+		Paint(jfrm.getGraphics());
+	}
+
+	public void Paint(Graphics g) {
+		g.drawString("Hello Java !!", 50, 50);
+	}
+}

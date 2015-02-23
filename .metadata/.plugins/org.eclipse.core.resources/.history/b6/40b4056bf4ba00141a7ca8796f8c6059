@@ -1,0 +1,13 @@
+package myMain;
+
+public class my_Graphics {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	my_Graphics(){
+		
+	}
+}

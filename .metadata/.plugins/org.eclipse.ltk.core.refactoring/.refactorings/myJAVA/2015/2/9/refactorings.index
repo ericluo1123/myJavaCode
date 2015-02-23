@@ -1,3 +1,16 @@
 1424617825082	Delete element
 1424621878371	Convert local variable 'cardLayout' to field
 1424622237459	Convert local variable 'gridLayout' to field
+1424647190569	Delete element
+1424647288910	Rename package 'myJava.myFrame'
+1424647295895	Rename package 'myJava.myInterface'
+1424647303407	Rename package 'myJava.myJFrame'
+1424647312959	Rename package 'myJava.myMain'
+1424647327139	Rename package 'myJava.myObject'
+1424647332391	Rename package 'myJava.myRunnable'
+1424647406439	Rename package 'window'
+1424648997780	Delete element
+1424651762221	Delete element
+1424651847841	Rename package 'myGriaphics'
+1424658465601	Rename local variable 'graphics'
+1424659016600	Convert local variable 'g' to field

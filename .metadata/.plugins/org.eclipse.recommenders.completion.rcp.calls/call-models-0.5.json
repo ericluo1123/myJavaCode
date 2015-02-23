@@ -14,5 +14,10 @@
     "location": "C:\\Users\\Eric\\Documents\\GitHub\\myJavaCode\\myJAVA\\src",
     "status": "UNRESOLVED",
     "error": "No class path info available for \u0027C:\\Users\\Eric\\Documents\\GitHub\\myJavaCode\\myJAVA\\src\u0027. Skipped."
+  },
+  "C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\src": {
+    "location": "C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\src",
+    "status": "UNRESOLVED",
+    "error": "No class path info available for \u0027C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\src\u0027. Skipped."
   }
 }

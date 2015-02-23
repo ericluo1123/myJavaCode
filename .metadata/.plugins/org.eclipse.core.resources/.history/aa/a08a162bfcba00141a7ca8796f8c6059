@@ -1,0 +1,13 @@
+package myGraphics;
+
+import java.awt.Paint;
+
+public class gra_Graphics {
+	gra_Graphics() {
+
+	}
+
+	void Paint() {
+
+	}
+}

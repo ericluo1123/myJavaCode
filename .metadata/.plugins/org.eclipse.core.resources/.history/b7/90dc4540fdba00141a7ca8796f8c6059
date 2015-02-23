@@ -1,0 +1,14 @@
+package myGraphics;
+
+import java.awt.Graphics;
+import java.awt.Paint;
+
+public class gra_Graphics {
+	gra_Graphics() {
+
+	}
+
+	public void Paint(Graphics g) {
+		g.drawString("Hello Java !!", 50, 50);
+	}
+}
