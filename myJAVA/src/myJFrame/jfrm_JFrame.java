@@ -122,7 +122,12 @@ public class jfrm_JFrame {
 
 		pg.drawLine(10, 10, 10, 30);
 		pg.drawRect(20, 10, 10, 30);
+		pg.setColor(Color.red);
+		pg.fillRect(20, 10, 10, 30);
+		pg.setColor(Color.orange);
+		pg.fillOval(40, 10, 10, 30);
 		pg.drawOval(40, 10, 10, 30);
+		pg.setColor(Color.black);
 		pg.drawArc(60, 10, 80, 80, 30, 180);
 	}
 
