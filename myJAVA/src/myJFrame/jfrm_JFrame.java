@@ -32,8 +32,11 @@ import java.awt.Font;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.sql.Time;
+import java.util.Timer;
+import java.util.TimerTask;
 
-public class jfrm_JFrame {
+public class jfrm_JFrame extends JPanel {
 	private JFrame jfrm;
 	private Graphics g;
 	private Graphics pg;
@@ -42,6 +45,8 @@ public class jfrm_JFrame {
 	private JButton btnClear;
 	private Point p1, p2;
 	private Boolean complete;
+	private boolean isDraw;
+	protected boolean isFirst;
 
 	public jfrm_JFrame() {
 
@@ -56,24 +61,26 @@ public class jfrm_JFrame {
 			@Override
 			public void mouseDragged(MouseEvent e) {
 				p2 = e.getPoint();
-				complete = true;
-				// pg.drawLine(p1.x, p1.y, p2.x, p2.y);
-				System.out.println("dragged");
+				isDraw = true;
+				repaint();
 			}
 		});
 		panel.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mousePressed(MouseEvent e) {
-				p1 = e.getPoint();
-
+				if (isFirst == false) {
+					isFirst = true;
+					p1 = e.getPoint();
+				} else {
+					isFirst = false;
+					isDraw = true;
+					p2 = e.getPoint();
+				}
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
-				// if (complete == true) {
-				// complete = false;
-				// pg.drawLine(p1.x, p1.y, p2.x, p2.y);
-				// }
+				isDraw = false;
 			}
 		});
 
@@ -107,6 +114,17 @@ public class jfrm_JFrame {
 		});
 		panel_1.add(btnClear);
 		pg = panel.getGraphics();
+
+		Timer timer = new Timer();
+
+		timer.schedule(new TimerTask() {
+
+			@Override
+			public void run() {
+				// TODO Auto-generated method stub
+				paintComponent(pg);
+			}
+		}, 10, 10);
 	}
 
 	protected void btnClear(Graphics pg) {
@@ -129,6 +147,7 @@ public class jfrm_JFrame {
 		pg.drawOval(40, 10, 10, 30);
 		pg.setColor(Color.black);
 		pg.drawArc(60, 10, 80, 80, 30, 180);
+
 	}
 
 	private void initJFrame() {
@@ -157,6 +176,18 @@ public class jfrm_JFrame {
 
 		jfrm.setTitle("Sample JFrame");
 		jfrm.setVisible(true);
+	}
+
+	public void paintComponent(Graphics g) {
+		// TODO Auto-generated method stub
+		// g.drawString("Hello Java !", 20, 20);
+		if (isDraw == false) {
+			return;
+		}
+		panel.update(pg);
+		// pg.drawLine(p1.x, p1.y, p2.x, p2.y);
+		pg.drawRect(p1.x, p1.y, p2.x, p2.y);
+
 	}
 
 }

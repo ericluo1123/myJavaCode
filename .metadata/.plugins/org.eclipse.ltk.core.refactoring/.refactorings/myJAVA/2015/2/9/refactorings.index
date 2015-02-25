@@ -16,3 +16,5 @@
 1424659016600	Convert local variable 'g' to field
 1424706101562	Convert local variable 'gbl_panel' to field
 1424706142813	Convert local variable 'gbConstraints' to field
+1424842834862	Convert local variable 'g' to field
+1424843038800	Convert local variable 'jframe' to field

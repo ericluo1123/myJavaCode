@@ -1,0 +1,31 @@
+package myMain;
+
+import java.awt.Graphics;
+import java.awt.Rectangle;
+
+import javax.swing.JFrame;
+
+import myFrame.frm_Frame;
+
+public class myLesson  {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		myLesson Windows = new myLesson();
+	}
+
+	public myLesson() {
+		// frm_Frame frame = new frm_Frame();
+		JFrame jframe = new JFrame();
+		 jframe.setBounds(new Rectangle(0, 0, 200, 150));
+		 jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframesetVisible(true);
+	}
+
+	// class CGFrame extends JFrame {
+	public void paint(Graphics g) {
+		g.drawString("Hello Java !", 50, 50);
+	}
+	// }
+
+}
