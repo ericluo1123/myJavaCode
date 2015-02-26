@@ -6,6 +6,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 
 import myFrame.frm_Frame;
+import myObject.obj_Crypher;
 import myRunnable.rub_Frame;
 
 import java.awt.Panel;
@@ -549,6 +550,15 @@ public class myMain {
 		// rub_Frame frm = new rub_Frame();
 		// Thread thread = new Thread(frm);
 		// thread.start();
+
+		String data = keyin.readLine();
+		obj_Crypher cr = new obj_Crypher();
+
+		data = cr.Encodeing(data);
+		System.out.println(data);
+
+		data = cr.Decondeing(data);
+		System.out.println(data);
 
 		keyin.close();
 	}

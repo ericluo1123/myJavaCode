@@ -2,39 +2,38 @@ package myObject;
 
 public class obj_Person {
 
-	private String name;
+	private String ChineseName;
+	private String EnglishName;
 	private double height;
 	private double weight;
 	private int age;
 	private int YearOfBirth;
 	private int MonthOfBirth;
 	private int DayOfBirth;
+	private String sex;
 
 	obj_Person() {
-		this.name = "No name";
+		this.ChineseName = "No name";
 		this.height = 0;
 		this.weight = 0;
 		this.age = 0;
-		this.YearOfBirth = 0;
-		this.MonthOfBirth = 0;
-		this.DayOfBirth = 0;
+
 	}
 
-	obj_Person(String name, double height, double weight, int age, int year,
-			int month, int day) {
-		this.name = name;
-		this.height = height;
-		this.weight = weight;
-		this.age = age;
-		this.YearOfBirth = year;
-		this.MonthOfBirth = month;
-		this.DayOfBirth = day;
+	obj_Person(String name) {
+		this.ChineseName = name;
 	}
 
+	// name
 	public void setName(String name) {
-		this.name = name;
+		this.ChineseName = name;
 	}
 
+	public String getName() {
+		return this.ChineseName;
+	}
+
+	// height
 	public void setHeight(double height) {
 		this.height = height;
 	}
@@ -43,10 +42,7 @@ public class obj_Person {
 		this.weight = weight;
 	}
 
-	public String getName() {
-		return this.name;
-	}
-
+	// height
 	public double getHeight() {
 		return this.height;
 	}
@@ -55,13 +51,48 @@ public class obj_Person {
 		return this.weight;
 	}
 
-	public int[] getDateOfBirth() {
-		int[] date = new int[3];
+	// year
+	void setYearOfBirth(int year) {
+		this.YearOfBirth = year;
+	}
 
-		date[0] = this.YearOfBirth;
-		date[1] = this.MonthOfBirth;
-		date[2] = this.DayOfBirth;
+	int getYearOfBirth() {
+		return this.YearOfBirth;
+	}
 
-		return date;
+	// month
+	void setMonthOfBirth(int month) {
+		this.MonthOfBirth = month;
+	}
+
+	int getMonthOfBirth() {
+		return this.MonthOfBirth;
+	}
+
+	// day
+	void setDay(int day) {
+		this.DayOfBirth = day;
+	}
+
+	int getDayOfBirth() {
+		return this.DayOfBirth;
+	}
+
+	// age
+	void setAge(int age) {
+		this.age = age;
+	}
+
+	int getAge() {
+		return this.age;
+	}
+
+	// sex
+	void setSex(String sex) {
+		this.sex = sex;
+	}
+
+	String getSex() {
+		return this.sex;
 	}
 }

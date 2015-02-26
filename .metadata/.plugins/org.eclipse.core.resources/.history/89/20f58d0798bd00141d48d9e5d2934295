@@ -1,0 +1,25 @@
+package myObject;
+
+public class obj_Crypher {
+
+	private int n;
+
+	public obj_Crypher() {
+		this.n = 10;
+	}
+
+	public String Encodeing(String code) {
+		char[] data = code.toCharArray();
+		for (int i = 0; i < data.length; i++) {
+			data[i] += this.n;
+			System.out.println("data[" + i + "] = " + data[i]);
+		}
+
+		String result = new String(data);
+		return result;
+	}
+
+	public String Decondeing() {
+		return null;
+	}
+}

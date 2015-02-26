@@ -1,0 +1,18 @@
+package myObject;
+
+public class obj_Crypher {
+
+	private int n;
+
+	obj_Crypher() {
+
+	}
+
+	String Encodeing(String code) {
+		return null;
+	}
+
+	String Decondeing() {
+		return null;
+	}
+}

@@ -1,0 +1,18 @@
+package myObject;
+
+public class obj_Caesar {
+
+	private int n;
+
+	obj_Caesar() {
+
+	}
+
+	String Encodeing(String code) {
+		return null;
+	}
+
+	String Decondeing() {
+		return null;
+	}
+}

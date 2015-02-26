@@ -1,0 +1,20 @@
+package myObject;
+
+public class obj_Crypher {
+
+	private int n;
+
+	obj_Crypher() {
+		this.n = 10;
+	}
+
+	String Encodeing(String code) {
+		char[] date=code.toCharArray();
+		
+		return null;
+	}
+
+	String Decondeing() {
+		return null;
+	}
+}
