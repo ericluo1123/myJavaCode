@@ -18,3 +18,5 @@
 1424706142813	Convert local variable 'gbConstraints' to field
 1424842834862	Convert local variable 'g' to field
 1424843038800	Convert local variable 'jframe' to field
+1424928517658	Rename local variable 'bfwriter'
+1424941294590	Rename type 'obj_Caesar'

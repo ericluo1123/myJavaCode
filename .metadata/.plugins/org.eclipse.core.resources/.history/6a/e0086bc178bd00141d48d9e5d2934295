@@ -1,0 +1,49 @@
+package myStream;
+
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class sample_FileStream {
+
+	private String fileName;
+	private String data;
+
+	public sample_FileStream() {
+
+		fileName = "C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\res\\student.txt";
+		try {
+			FileWriter fWriter = new FileWriter(fileName);
+			BufferedWriter bfWriter = new BufferedWriter(fWriter);
+
+			bfWriter.write("王一,90,80");
+			bfWriter.newLine();
+			bfWriter.write("張三,70,85");
+			bfWriter.newLine();
+			bfWriter.flush();
+			bfWriter.close();
+
+			FileReader fRead = new FileReader(fileName);
+			BufferedReader bfReader = new BufferedReader(fRead);
+			
+			do{
+				data =bfReader.readLine();
+				if(data == null){
+					break;
+				}
+				System.out.println(data);
+			}while(true);
+			
+			bfReader.close();
+			
+			
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("File ERROR !!");
+		}
+	}
+}

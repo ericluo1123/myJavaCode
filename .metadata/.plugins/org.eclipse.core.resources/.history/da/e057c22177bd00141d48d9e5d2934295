@@ -1,0 +1,28 @@
+package myStream;
+
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
+public class sample_FileStream {
+
+	private String fileName;
+
+	public sample_FileStream() {
+
+		fileName = "student.txt";
+		try {
+			FileWriter fwriter = new FileWriter(fileName);
+			BufferedWriter bfwriter = new BufferedWriter(fwriter);
+
+			bfwriter.write("王一,90,80");
+			bfwriter.newLine();
+			bfwriter.write("張三,70,85");
+			bfwriter.newLine();
+
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+}

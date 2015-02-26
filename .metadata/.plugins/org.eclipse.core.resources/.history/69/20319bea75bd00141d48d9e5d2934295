@@ -1,0 +1,13 @@
+package myMain;
+
+public class my_FileStream {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+	
+	my_FileStream(){
+		
+	}
+}
