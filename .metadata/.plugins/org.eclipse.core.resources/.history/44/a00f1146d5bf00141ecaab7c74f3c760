@@ -1,0 +1,70 @@
+package Layout;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.JFrameTools;
+import javax.swing.JPanel;
+import javax.swing.JButton;
+import java.awt.Component;
+import javax.swing.Box;
+import java.awt.FlowLayout;
+
+public class sample_Strut {
+
+	private JFrame jframe;
+	private Component horizontalStrut;
+	private JButton btnButton;
+	private JButton btnButton_1;
+	private JPanel panel_1;
+	private JPanel panel_2;
+	private JButton btnButton_2;
+	private JButton btnButton_3;
+	private Component verticalStrut;
+
+	/**
+	 * 支撐
+	 */
+	sample_Strut() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 250, 150));
+		jframe.setTitle("Sample Strut");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+
+		JPanel panel = new JPanel();
+		jframe.getContentPane().add(panel);
+		
+		panel_1 = new JPanel();
+		panel.add(panel_1);
+		panel_1.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+		
+				btnButton = new JButton("button 1");
+				panel_1.add(btnButton);
+						
+								horizontalStrut = Box.createHorizontalStrut(20);
+								panel_1.add(horizontalStrut);
+				
+						btnButton_1 = new JButton("button 2");
+						panel_1.add(btnButton_1);
+						
+						panel_2 = new JPanel();
+						panel.add(panel_2);
+						panel_2.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+						
+						btnButton_2 = new JButton("button 3");
+						panel_2.add(btnButton_2);
+						
+						btnButton_3 = new JButton("button 4");
+						panel_2.add(btnButton_3);
+						
+						verticalStrut = Box.createVerticalStrut(20);
+						panel_2.add(verticalStrut);
+	}
+}

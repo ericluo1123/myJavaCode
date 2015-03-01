@@ -1,0 +1,12 @@
+package Layout;
+
+public class sample_BorderLayout {
+
+	/**
+	 * 邊境
+	 */
+	sample_BorderLayout() {
+
+	}
+
+}

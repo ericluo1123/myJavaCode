@@ -1,0 +1,25 @@
+package Layout;
+
+import javax.swing.JFrame;
+
+import myFrame.myJFrame;
+
+public class sample_FlowLayout {
+
+	private JFrame JFrame;
+	private static sample_FlowLayout sample_FlowLayout;
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+		sample_FlowLayout = new sample_FlowLayout();
+	}
+
+	sample_FlowLayout() {
+		// JFrame
+		JFrame = new JFrame();
+		JFrame.setTitle("Sample sample_FlowLayout ");
+		myJFrame.initJFrame(JFrame);
+	}
+
+}

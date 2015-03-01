@@ -1,0 +1,27 @@
+package Layout;
+
+import java.awt.Rectangle;
+
+import javax.swing.JFrame;
+
+import myFrame.myJFrame;
+
+public class sample_BorderLayout {
+
+	private static sample_BorderLayout sample_BorderLayout;
+	private JFrame jframe;
+
+	public static void main(String[] args) {
+		sample_BorderLayout = new sample_BorderLayout();
+	}
+
+	sample_BorderLayout() {
+
+		// JFrame
+		jframe = new JFrame();
+		jframe.setBounds(new Rectangle(0, 0, 250, 150));
+		jframe.setTitle("Sample FlowLayout ");
+		myJFrame.initJFrame(jframe);
+
+	}
+}

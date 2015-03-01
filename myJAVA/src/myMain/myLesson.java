@@ -26,7 +26,7 @@ public class myLesson {
 		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		jframe.setVisible(true);
 
-		RepaintArea();
+		// RepaintArea();
 		// Timer timer = new Timer();
 		// timer.schedule(new TimerTask() {
 		//

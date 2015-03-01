@@ -1,0 +1,63 @@
+package Layout;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.myJFrame;
+import javax.swing.JPanel;
+import java.awt.GridLayout;
+import java.awt.CardLayout;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import java.awt.ComponentOrientation;
+import java.awt.Dialog.ModalExclusionType;
+import java.awt.Window.Type;
+import java.awt.Dimension;
+
+public class sample_CardLayout {
+
+	private JFrame jframe;
+	private static sample_CardLayout sample_CardLayout;
+	private JPanel panel_1;
+
+	public static void main(String[] args) {
+		sample_CardLayout = new sample_CardLayout();
+	}
+
+	sample_CardLayout() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.pack();
+		 jframe.setBounds(new Rectangle(0, 0, 400, 100));
+
+		jframe.setTitle("Sample FlowLayout ");
+		myJFrame.initJFrame(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+
+		JPanel panel = new JPanel();
+		jframe.getContentPane().add(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.CENTER, 5, 5));
+
+		JButton button = new JButton("<<First");
+		panel.add(button);
+
+		JButton button_1 = new JButton("<Previous");
+		panel.add(button_1);
+
+		panel_1 = new JPanel();
+		FlowLayout flowLayout = (FlowLayout) panel_1.getLayout();
+		flowLayout.setVgap(10);
+		flowLayout.setHgap(30);
+		panel.add(panel_1);
+
+		JButton btnNext = new JButton("Next>");
+		panel.add(btnNext);
+
+		JButton btnLast = new JButton("Last>>");
+		panel.add(btnLast);
+	}
+}

@@ -121,12 +121,8 @@ public class window {
 	private JRadioButtonMenuItem rdbtnmntmContrast;
 	private JPanel panel;
 
-	private GridBagLayout gbl_panel;
-
-	private GridBagConstraints gbConstraints;
-	private JButton button;
-	private JButton button_1;
-	private JButton button_2;
+	private GridBagLayout gridBagLayout;
+	private GridBagConstraints gridBagConstraints;
 
 	public window() {
 
@@ -216,43 +212,30 @@ public class window {
 				new BoxLayout(jfrm.getContentPane(), BoxLayout.PAGE_AXIS));
 
 		panel = new JPanel();
-		gbl_panel = new GridBagLayout();
-		gbl_panel.columnWeights = new double[] { 0.0, 0.0, 0.0};
-		gbl_panel.rowWeights = new double[] { 0.0};
-		panel.setLayout(gbl_panel);
-		gbConstraints = new GridBagConstraints();
-		gbConstraints.fill = GridBagConstraints.BOTH;
-		gbConstraints.weightx = 1.0;
+		gridBagLayout = new GridBagLayout();
+		// gridBagLayout.columnWeights = new double[] { 0.0};
+		// gridBagLayout.rowWeights = new double[] { 0.0};
+		panel.setLayout(gridBagLayout);
+		gridBagConstraints = new GridBagConstraints();
 		jfrm.getContentPane().add(panel);
-		
-		button = new JButton("1");
-		GridBagConstraints gbc_button = new GridBagConstraints();
-		gbc_button.anchor = GridBagConstraints.NORTH;
-		gbc_button.fill = GridBagConstraints.HORIZONTAL;
-		gbc_button.insets = new Insets(0, 0, 5, 5);
-		gbc_button.gridx = 0;
-		gbc_button.gridy = 0;
-		panel.add(button, gbc_button);
-		gbl_panel.setConstraints(button, gbConstraints);
-		
-		button_1 = new JButton("2");
-		GridBagConstraints gbc_button_1 = new GridBagConstraints();
-		gbc_button_1.insets = new Insets(0, 0, 5, 5);
-		gbc_button_1.gridx = 1;
-		gbc_button_1.gridy = 0;
-		panel.add(button_1, gbc_button_1);
-		gbl_panel.setConstraints(button_1, gbConstraints);
-		
-		button_2 = new JButton("3");
-		GridBagConstraints gbc_button_2 = new GridBagConstraints();
-		gbc_button_2.insets = new Insets(0, 0, 5, 0);
-		gbc_button_2.gridx = 2;
-		gbc_button_2.gridy = 0;
-		panel.add(button_2, gbc_button_2);
-		gbl_panel.setConstraints(button_2, gbConstraints);
-		
-		gbConstraints.gridwidth = GridBagConstraints.REMAINDER; 
 
+		// 同時改變物件寬度與高度以填滿顯示區域之水平與垂直方向
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		// 依加權比例分配物件間水平方向額外之區域
+		gridBagConstraints.weightx = 1.0;
+
+		// 設定物件配置時所佔據區域列的數目
+		// 物件將填滿所剩餘的區域列數或行數
+		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		// 依加權比例分配物件間水平方向額外之區域
+		gridBagConstraints.weightx = 0.0;
+		// 依加權比例分配物件間水平方向額外之區域
+		gridBagConstraints.weightx = 2.0;
+		// 依加權比例分配物件間水平方向額外之區域
+		gridBagConstraints.weightx = 1.0;
+
+		// 依加權比例分配物件間水平方向額外之區域
+		gridBagConstraints.weightx = 0.0;
 
 		/**
 		 * JMenuBar

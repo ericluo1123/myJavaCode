@@ -13,6 +13,9 @@
 		<item value="false" key="updateTextualMatches"/>
 		<item value="1" key="updateSimilarElementsMatchStrategy"/>
 	</section>
+	<section name="SelfEncapsulateFieldWizard">
+		<item value="false" key="GenerateJavadoc"/>
+	</section>
 	<section name="org.eclipse.jdt.internal.ui.dialogs.FilteredTypesSelectionDialog">
 		<item value="true" key="ShowStatusLine"/>
 		<item value="&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;&#x0D;&#x0A;&lt;History/&gt;" key="History"/>

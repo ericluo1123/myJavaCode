@@ -1,0 +1,53 @@
+package myFrame;
+
+import java.awt.Dimension;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.JRootPane;
+
+public class myJFrame {
+
+	public static void initJFrame(JFrame jfrm, ClassLoader cl) {
+		/**
+		 * JFrame
+		 */
+		jfrm = new JFrame();
+		jfrm.setBounds(new Rectangle(0, 0, 250, 250));
+		// 取得目前之Class Loader
+		// cl = jfrm.getClass().getClassLoader();
+
+		// jfrm.getRootPane().setWindowDecorationStyle(JRootPane.FRAME);
+		// jfrm.setTitle("Decoration: FRAME");
+		// 設定視窗圖示
+		// jfrm.setIconImage(new ImageIcon(cl
+		// .getResource("images/java.png")).getImage());
+
+		// jfrm.setFocusTraversalKeysEnabled(false);
+
+		// 取得螢幕大小
+		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+
+		// 取得視窗大小
+		Dimension frameSize = jfrm.getSize();
+
+		// 比較螢幕與視窗的高度
+		if (frameSize.height > screenSize.height)
+			frameSize.height = screenSize.height;
+
+		// 比較螢幕與視窗的寬度
+		if (frameSize.width > screenSize.width)
+			frameSize.width = screenSize.width;
+
+		// 將視窗定位於螢幕中央
+		jfrm.setLocation((screenSize.width - frameSize.width) / 2,
+				(screenSize.height - frameSize.height) / 2);
+		jfrm.setVisible(true);
+		jfrm.getContentPane().setLayout(null);
+		jfrm.getContentPane().setLayout(
+				new BoxLayout(jfrm.getContentPane(), BoxLayout.PAGE_AXIS));
+
+	}
+}

@@ -1,0 +1,21 @@
+package Layout;
+
+import javax.swing.JFrame;
+
+import myFrame.myJFrame;
+
+public class sample_FlowLayout {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+	sample_FlowLayout() {
+		// JFrame
+		JFrame = new JFrame();
+		JFrame.setTitle("Sample GridBagLayout ");
+		myJFrame.initJFrame(JFrame);
+	}
+
+}

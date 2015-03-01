@@ -20,3 +20,40 @@
 1424843038800	Convert local variable 'jframe' to field
 1424928517658	Rename local variable 'bfwriter'
 1424941294590	Rename type 'obj_Caesar'
+1425097780539	Rename field 'gbConstraints'
+1425098314064	Convert local variable 'gbl_panel' to field
+1425098330748	Rename field 'gbl_panel'
+1425099117929	Rename type 'initJFrame'
+1425099137233	Rename type 'JFrame'
+1425099190065	Delete element
+1425100176917	Delete element
+1425100188753	Rename type 'abc'
+1425103040700	Delete element
+1425103085794	Delete element
+1425103099282	Move package
+1425103150921	Rename source folder 'Layout'
+1425103181635	Rename package 'myPractice'
+1425104066402	Rename field 'jFrame'
+1425104079330	Convert local variable 'sample_GridBagLayout' to field
+1425104185291	Convert local variable 'sample_FlowLayout' to field
+1425105094631	Convert local variable 'sample_BorderLayout' to field
+1425105128095	Rename field 'JFrame'
+1425105524561	Convert local variable 'sample_CardLayout' to field
+1425106873173	Convert local variable 'flowLayout' to field
+1425107006467	Convert local variable 'cardLayout' to field
+1425116790905	Rename source folder 'practice_Layout'
+1425116867530	Convert local variable 'sample_GridLayout' to field
+1425117615089	Delete element
+1425146776699	Rename type 'mainBorderLayout'
+1425146803571	Rename type 'sample_BorderLayout'
+1425146984765	Delete element
+1425147037887	Rename type 'sample_CardLayout'
+1425147043933	Rename type 'sample_FlowLayout'
+1425147049814	Rename type 'sample_GridBagLayout'
+1425147056514	Rename type 'sample_GridLayout'
+1425147156212	Delete element
+1425147283436	Delete element
+1425147439938	Delete element
+1425147509313	Delete element
+1425148080620	Convert local variable 'overlayLayout' to field
+1425149797113	Convert local variable 'boxLayout' to field

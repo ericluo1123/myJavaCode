@@ -1,0 +1,9 @@
+package Layout;
+
+public class sample_BorderLayout {
+	
+	sample_BorderLayout(){
+		
+	}
+
+}

@@ -1,0 +1,10 @@
+package Layout;
+
+public class sample_GridLayout {
+	/**
+	 * 格子
+	 */
+	sample_GridLayout() {
+
+	}
+}

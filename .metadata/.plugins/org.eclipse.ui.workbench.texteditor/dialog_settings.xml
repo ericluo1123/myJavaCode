@@ -8,6 +8,7 @@
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="&#x09;&#x09;&#x09;overlayLayout = new OverlayLayout(panel);"/>
 			<item value="panel"/>
 			<item value="rdbtnmntmMetal.s"/>
 			<item value="rdbtnmntmMetal."/>

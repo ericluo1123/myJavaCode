@@ -1,0 +1,8 @@
+package Layout;
+
+public class sample_SpringLayout {
+
+	sample_SpringLayout(){
+		
+	}
+}

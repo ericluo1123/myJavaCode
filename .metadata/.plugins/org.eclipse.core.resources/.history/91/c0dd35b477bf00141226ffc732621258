@@ -1,0 +1,39 @@
+package Layout;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+import javax.swing.OverlayLayout;
+
+import myFrame.JFrameTools;
+
+import javax.swing.JPanel;
+
+public class sample_OverlayLayout {
+
+	private JFrame jframe;
+	private JPanel panel;
+	private OverlayLayout overlayLayout;
+
+	/**
+	 * 覆蓋
+	 */
+	sample_OverlayLayout() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 200, 300));
+		jframe.setTitle("Sample Overlay Layout ");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+
+		panel = new JPanel();
+		jframe.getContentPane().add(panel);
+
+		overlayLayout = new OverlayLayout(panel);
+
+	}
+}
