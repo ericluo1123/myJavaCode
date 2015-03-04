@@ -1,0 +1,20 @@
+package myObject;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+public class obj_MysqlTools {
+
+	private static String className = new String("com.mysql.jdbc.Driver");
+
+	public static void doDriverTest() {
+		try {
+			Class.forName(className);
+			JOptionPane.showMessageDialog(null, "mysql driver Successful installation !!");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+	}
+}

@@ -1,14 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.sql.Time"/>
-<fullyQualifiedTypeName name="java.util.Timer"/>
-<fullyQualifiedTypeName name="java.util.TimerTask"/>
-<fullyQualifiedTypeName name="sun.awt.RepaintArea"/>
-<fullyQualifiedTypeName name="myMain.my_FileStream"/>
-<fullyQualifiedTypeName name="java.io.FileWriter"/>
-<fullyQualifiedTypeName name="java.io.BufferedWriter"/>
-<fullyQualifiedTypeName name="java.io.FileReader"/>
-<fullyQualifiedTypeName name="java.io.InputStreamReader"/>
 <fullyQualifiedTypeName name="java.io.BufferedReader"/>
 <fullyQualifiedTypeName name="myStream.sample_FileStream"/>
 <fullyQualifiedTypeName name="java.io.FileInputStream"/>
@@ -19,7 +10,6 @@
 <fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
 <fullyQualifiedTypeName name="java.awt.GridBagConstraints"/>
 <fullyQualifiedTypeName name="java.awt.Rectangle"/>
-<fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="javax.swing.JRootPane"/>
 <fullyQualifiedTypeName name="com.sun.media.sound.Toolkit"/>
 <fullyQualifiedTypeName name="com.sun.xml.internal.ws.api.server.Adapter.Toolkit"/>
@@ -60,4 +50,14 @@
 <fullyQualifiedTypeName name="Layout.sample_SpringLayout"/>
 <fullyQualifiedTypeName name="Layout.main_GroupLayout"/>
 <fullyQualifiedTypeName name="Layout.sample_GroupLayout"/>
+<fullyQualifiedTypeName name="Mysql.main_Mysql"/>
+<fullyQualifiedTypeName name="Mysql.sample_Mysql"/>
+<fullyQualifiedTypeName name="javax.swing.JFrame"/>
+<fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.util.logging.ErrorManager"/>
+<fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.util.ErrorMessages"/>
+<fullyQualifiedTypeName name="myObject.obj_MysqlTools"/>
+<fullyQualifiedTypeName name="com.mysql.jdbc.Connection"/>
+<fullyQualifiedTypeName name="java.sql.DriverManager"/>
 </qualifiedTypeNameHistroy>

@@ -1,7 +1,0 @@
-package myGraphics;
-
-public class gra_Graphics {
-	gra_Graphics(){
-		
-	}
-}

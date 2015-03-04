@@ -1,0 +1,87 @@
+package Mysql;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.JFrameTools;
+import javax.swing.JPanel;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.Insets;
+
+public class sample_Mysql {
+
+	private JFrame jframe;
+	private JLabel lblAge;
+	private JLabel lblName;
+	private JTextField textFieldName;
+	private JTextField textField;
+
+	sample_Mysql() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 450, 350));
+		jframe.setTitle("Sample Mysql");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+		
+		JPanel panel = new JPanel();
+		jframe.getContentPane().add(panel);
+		GridBagLayout gbl_panel = new GridBagLayout();
+		gbl_panel.columnWidths = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0};
+		gbl_panel.rowHeights = new int[]{0, 0, 0};
+		gbl_panel.columnWeights = new double[]{0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, Double.MIN_VALUE};
+		gbl_panel.rowWeights = new double[]{0.0, 0.0, Double.MIN_VALUE};
+		panel.setLayout(gbl_panel);
+		
+		lblName = new JLabel("Name :");
+		lblName.setFont(new Font("新細明體", Font.BOLD, 16));
+		GridBagConstraints gbc_lblName = new GridBagConstraints();
+		gbc_lblName.insets = new Insets(0, 0, 0, 5);
+		gbc_lblName.anchor = GridBagConstraints.EAST;
+		gbc_lblName.gridx = 1;
+		gbc_lblName.gridy = 1;
+		panel.add(lblName, gbc_lblName);
+		
+		textFieldName = new JTextField();
+		GridBagConstraints gbc_textFieldName = new GridBagConstraints();
+		gbc_textFieldName.insets = new Insets(0, 0, 0, 5);
+		gbc_textFieldName.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textFieldName.gridx = 2;
+		gbc_textFieldName.gridy = 1;
+		panel.add(textFieldName, gbc_textFieldName);
+		textFieldName.setColumns(10);
+		
+		lblAge = new JLabel("Age :");
+		lblAge.setFont(new Font("新細明體", Font.BOLD, 16));
+		GridBagConstraints gbc_lblAge = new GridBagConstraints();
+		gbc_lblAge.insets = new Insets(0, 0, 0, 5);
+		gbc_lblAge.anchor = GridBagConstraints.EAST;
+		gbc_lblAge.gridx = 6;
+		gbc_lblAge.gridy = 1;
+		panel.add(lblAge, gbc_lblAge);
+		
+		textField = new JTextField();
+		GridBagConstraints gbc_textField = new GridBagConstraints();
+		gbc_textField.fill = GridBagConstraints.HORIZONTAL;
+		gbc_textField.gridx = 7;
+		gbc_textField.gridy = 1;
+		panel.add(textField, gbc_textField);
+		textField.setColumns(10);
+
+//		try {
+//			Class.forName(null);
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+}

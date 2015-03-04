@@ -1,0 +1,158 @@
+package Mysql;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.JFrameTools;
+import javax.swing.JPanel;
+import java.awt.GridBagLayout;
+import javax.swing.JLabel;
+import java.awt.GridBagConstraints;
+import java.awt.Font;
+import javax.swing.JTextField;
+import java.awt.Insets;
+import javax.swing.JRadioButton;
+import javax.swing.SpringLayout;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Component;
+import javax.swing.Box;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.SwingConstants;
+
+public class sample_Mysql {
+
+	private JFrame jframe;
+	private JTextField txtName;
+	private JTextField txtAge;
+
+	sample_Mysql() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 450, 350));
+		jframe.setTitle("Sample Mysql");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+		
+		JPanel panel = new JPanel();
+		jframe.getContentPane().add(panel);
+		SpringLayout sl_panel = new SpringLayout();
+		panel.setLayout(sl_panel);
+		
+		JLabel lblAge = new JLabel("Age :");
+		sl_panel.putConstraint(SpringLayout.WEST, lblAge, 185, SpringLayout.WEST, panel);
+		panel.add(lblAge);
+		
+		txtName = new JTextField();
+		sl_panel.putConstraint(SpringLayout.WEST, txtName, 49, SpringLayout.WEST, panel);
+		txtName.setText("Name");
+		panel.add(txtName);
+		txtName.setColumns(10);
+		
+		txtAge = new JTextField();
+		sl_panel.putConstraint(SpringLayout.WEST, txtAge, 6, SpringLayout.EAST, lblAge);
+		txtAge.setText("Age");
+		panel.add(txtAge);
+		txtAge.setColumns(10);
+		
+		JPanel panel_1 = new JPanel();
+		sl_panel.putConstraint(SpringLayout.WEST, panel_1, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, panel_1, -10, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, panel_1, 424, SpringLayout.WEST, panel);
+		panel.add(panel_1);
+		panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.PAGE_AXIS));
+		
+		JTextArea textArea = new JTextArea();
+		panel_1.add(textArea);
+		
+		JPanel panel_2 = new JPanel();
+		sl_panel.putConstraint(SpringLayout.NORTH, panel_2, 66, SpringLayout.NORTH, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, txtAge, -16, SpringLayout.NORTH, panel_2);
+		sl_panel.putConstraint(SpringLayout.SOUTH, txtName, -16, SpringLayout.NORTH, panel_2);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblAge, -19, SpringLayout.NORTH, panel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, panel_2, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, panel_2, -225, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, panel_2, 0, SpringLayout.EAST, panel_1);
+		panel.add(panel_2);
+		
+		JLabel lblSex = new JLabel("Sex :");
+		
+		JRadioButton rdbtnMan = new JRadioButton("man");
+		sl_panel.putConstraint(SpringLayout.NORTH, rdbtnMan, 15, SpringLayout.SOUTH, txtName);
+		sl_panel.putConstraint(SpringLayout.WEST, rdbtnMan, 0, SpringLayout.WEST, txtName);
+		sl_panel.putConstraint(SpringLayout.EAST, rdbtnMan, -20, SpringLayout.EAST, txtName);
+		
+		JRadioButton rdbtnWoman = new JRadioButton("woman");
+		sl_panel.putConstraint(SpringLayout.NORTH, rdbtnWoman, 15, SpringLayout.SOUTH, txtName);
+		sl_panel.putConstraint(SpringLayout.WEST, rdbtnWoman, 131, SpringLayout.WEST, panel);
+		
+		JPanel panel_3 = new JPanel();
+		sl_panel.putConstraint(SpringLayout.NORTH, panel_1, 96, SpringLayout.SOUTH, panel_3);
+		sl_panel.putConstraint(SpringLayout.NORTH, panel_3, 6, SpringLayout.SOUTH, panel_2);
+		sl_panel.putConstraint(SpringLayout.WEST, panel_3, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, panel_3, -193, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, panel_3, 0, SpringLayout.EAST, panel_1);
+		panel.add(panel_3);
+		panel_3.setLayout(new BoxLayout(panel_3, BoxLayout.X_AXIS));
+		
+		JLabel lblFun = new JLabel("Fun :");
+		panel_3.add(lblFun);
+		
+		JRadioButton rdbtnComputer = new JRadioButton("computer");
+		panel_3.add(rdbtnComputer);
+		sl_panel.putConstraint(SpringLayout.WEST, rdbtnComputer, 0, SpringLayout.WEST, txtName);
+		
+		JRadioButton rdbtnSong = new JRadioButton("Song");
+		panel_3.add(rdbtnSong);
+		sl_panel.putConstraint(SpringLayout.WEST, rdbtnSong, 131, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, rdbtnSong, -23, SpringLayout.NORTH, panel_2);
+		
+		JRadioButton rdbtnMovie = new JRadioButton("Movie");
+		panel_3.add(rdbtnMovie);
+		sl_panel.putConstraint(SpringLayout.SOUTH, rdbtnMovie, -23, SpringLayout.NORTH, panel_2);
+		
+		JRadioButton rdbtnDraw = new JRadioButton("Painting");
+		panel_3.add(rdbtnDraw);
+		sl_panel.putConstraint(SpringLayout.SOUTH, rdbtnDraw, -23, SpringLayout.NORTH, panel_2);
+		sl_panel.putConstraint(SpringLayout.EAST, rdbtnMovie, -6, SpringLayout.WEST, rdbtnDraw);
+		
+		JRadioButton rdbtnTravel = new JRadioButton("Travel");
+		panel_3.add(rdbtnTravel);
+		sl_panel.putConstraint(SpringLayout.EAST, rdbtnTravel, -33, SpringLayout.EAST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, rdbtnTravel, -23, SpringLayout.NORTH, panel_2);
+		panel_2.setLayout(new BoxLayout(panel_2, BoxLayout.X_AXIS));
+		panel_2.add(lblSex);
+		panel_2.add(rdbtnMan);
+		panel_2.add(rdbtnWoman);
+		sl_panel.putConstraint(SpringLayout.EAST, rdbtnDraw, -6, SpringLayout.WEST, rdbtnTravel);
+		
+		JPanel panel_4 = new JPanel();
+		sl_panel.putConstraint(SpringLayout.NORTH, panel_4, 6, SpringLayout.SOUTH, panel_3);
+		sl_panel.putConstraint(SpringLayout.WEST, panel_4, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, panel_4, 27, SpringLayout.SOUTH, panel_3);
+		sl_panel.putConstraint(SpringLayout.EAST, panel_4, -18, SpringLayout.EAST, panel_1);
+		panel.add(panel_4);
+		
+		JLabel lblName = new JLabel("Name :");
+		panel_4.add(lblName);
+		sl_panel.putConstraint(SpringLayout.WEST, lblName, 10, SpringLayout.WEST, panel);
+		sl_panel.putConstraint(SpringLayout.SOUTH, lblName, -265, SpringLayout.SOUTH, panel);
+		sl_panel.putConstraint(SpringLayout.EAST, lblSex, 0, SpringLayout.EAST, lblName);
+		sl_panel.putConstraint(SpringLayout.WEST, lblFun, 0, SpringLayout.WEST, lblName);
+
+//		try {
+//			Class.forName(null);
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+	}
+}

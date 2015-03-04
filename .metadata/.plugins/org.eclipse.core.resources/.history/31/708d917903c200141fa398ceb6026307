@@ -1,0 +1,25 @@
+package Mysql;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.JFrameTools;
+
+public class sample_Mysql {
+
+	private JFrame jframe;
+
+	sample_Mysql() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 250, 150));
+		jframe.setTitle("Sample Mysql");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(
+				new BoxLayout(jframe.getContentPane(), BoxLayout.PAGE_AXIS));
+	}
+}

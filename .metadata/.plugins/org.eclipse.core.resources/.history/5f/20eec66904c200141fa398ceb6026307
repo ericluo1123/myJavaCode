@@ -1,0 +1,12 @@
+package myObject;
+
+import javax.swing.JFrame;
+
+public class obj_MysqlTools {
+
+	private static String className =new String("com.mysql.jdbc.Driver");
+
+	public static void doDriverTest(){
+		Class.forName(className);
+	}
+}

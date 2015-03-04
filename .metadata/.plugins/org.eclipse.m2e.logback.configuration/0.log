@@ -151,3 +151,4 @@ Caused by: java.nio.channels.UnresolvedAddressException: null
 2015-02-28 11:38:37,722 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
 2015-03-01 12:43:42,289 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
 2015-03-01 20:56:31,881 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8
+2015-03-04 08:11:27,912 [main] INFO  c.n.h.c.p.n.NettyAsyncHttpProvider - Number of application's worked threads is 8

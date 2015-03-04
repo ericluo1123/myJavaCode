@@ -1,0 +1,10 @@
+package myObject;
+
+import javax.swing.JFrame;
+
+public class obj_MysqlTools{
+	
+	obj_MysqlTools(){
+		Class.forName(className);
+	}
+}
