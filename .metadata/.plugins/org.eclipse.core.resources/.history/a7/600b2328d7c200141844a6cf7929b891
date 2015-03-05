@@ -1,0 +1,93 @@
+package Mysql;
+
+import java.awt.Rectangle;
+
+import javax.swing.BoxLayout;
+import javax.swing.JFrame;
+
+import myFrame.JFrameTools;
+
+import javax.swing.JPanel;
+
+import java.awt.GridBagLayout;
+
+import javax.swing.JLabel;
+
+import java.awt.GridBagConstraints;
+import java.awt.Font;
+
+import javax.swing.JTextField;
+
+import java.awt.Insets;
+
+import javax.swing.JRadioButton;
+import javax.swing.SpringLayout;
+import javax.swing.JTextArea;
+import javax.swing.JList;
+
+import java.awt.FlowLayout;
+import java.awt.GridLayout;
+import java.awt.Component;
+
+import javax.swing.Box;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.SwingConstants;
+import javax.swing.JCheckBox;
+import javax.swing.JButton;
+
+import com.mysql.jdbc.UpdatableResultSet;
+
+public class sample_Mysql {
+
+	private JFrame jframe;
+	private JTextField textField;
+	private JTextField textField_1;
+	private JPanel panel;
+	private JPanel panel_1;
+	private JPanel panel_2;
+
+	sample_Mysql() {
+		// JFrame
+		jframe = new JFrame();
+		jframe.setVisible(true);
+		jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		jframe.setBounds(new Rectangle(0, 0, 550, 450));
+		jframe.setTitle("Sample Mysql");
+		JFrameTools.setCenter(jframe);
+		jframe.getContentPane().setLayout(new BoxLayout(jframe.getContentPane(), BoxLayout.Y_AXIS));
+		
+		panel = new JPanel();
+		jframe.getContentPane().add(panel);
+		panel.setLayout(new FlowLayout(FlowLayout.LEFT, 5, 5));
+		
+		JLabel lblNewLabel = new JLabel("New label");
+		panel.add(lblNewLabel);
+		
+		textField = new JTextField();
+		panel.add(textField);
+		textField.setColumns(10);
+		
+		JLabel lblNewLabel_1 = new JLabel("New label");
+		panel.add(lblNewLabel_1);
+		
+		textField_1 = new JTextField();
+		panel.add(textField_1);
+		textField_1.setColumns(10);
+		
+		panel_1 = new JPanel();
+		jframe.getContentPane().add(panel_1);
+		
+		panel_2 = new JPanel();
+		jframe.getContentPane().add(panel_2);
+
+//		try {
+//			Class.forName(null);
+//		} catch (ClassNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+	
+	}
+}

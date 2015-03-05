@@ -1,7 +1,0 @@
-package myObject;
-
-public class obj_MysqlTools extends JFrame{
-	
-	Class.forName();
-
-}

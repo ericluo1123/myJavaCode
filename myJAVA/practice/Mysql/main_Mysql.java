@@ -10,7 +10,11 @@ public class main_Mysql {
 	}
 
 	main_Mysql() {
+
+		obj_MysqlTools.connectionDriver();
+		// obj_MysqlTools.connectionDatabase();
+		// obj_MysqlTools.createDatabase("mytest");
+		obj_MysqlTools.deleteDatabase("test");
 		sample_Mysql sample_Mysql = new sample_Mysql();
-		obj_MysqlTools.doDriverTest();
 	}
 }

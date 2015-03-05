@@ -19,5 +19,10 @@
     "location": "C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\src",
     "status": "UNRESOLVED",
     "error": "No class path info available for \u0027C:\\Users\\taianluo\\Documents\\GitHub\\myJavaCode\\myJAVA\\src\u0027. Skipped."
+  },
+  "C:\\Users\\taianluo\\Google 雲端硬碟\\mySQL\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34-bin.jar": {
+    "location": "C:\\Users\\taianluo\\Google 雲端硬碟\\mySQL\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34-bin.jar",
+    "status": "UNRESOLVED",
+    "error": "No call model found for \u0027C:\\Users\\taianluo\\Google 雲端硬碟\\mySQL\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34\\mysql-connector-java-5.1.34-bin.jar\u0027. Neither fingerprint \u00276df5bcec3970d71eaace2c5589077452c5e9ecfa\u0027 nor symbolic name \u0027com.mysql.jdbc\u0027 are known."
   }
 }
