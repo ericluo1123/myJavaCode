@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="java.io.FileOutputStream"/>
-<fullyQualifiedTypeName name="java.lang.Boolean"/>
-<fullyQualifiedTypeName name="myMain.myMain"/>
 <fullyQualifiedTypeName name="myObject.obj_Crypher"/>
 <fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
 <fullyQualifiedTypeName name="java.awt.GridBagConstraints"/>
@@ -47,7 +44,6 @@
 <fullyQualifiedTypeName name="Layout.sample_SpringLayout"/>
 <fullyQualifiedTypeName name="Layout.main_GroupLayout"/>
 <fullyQualifiedTypeName name="Layout.sample_GroupLayout"/>
-<fullyQualifiedTypeName name="Mysql.main_Mysql"/>
 <fullyQualifiedTypeName name="Mysql.sample_Mysql"/>
 <fullyQualifiedTypeName name="javax.swing.JFrame"/>
 <fullyQualifiedTypeName name="java.util.logging.ErrorManager"/>
@@ -60,4 +56,8 @@
 <fullyQualifiedTypeName name="java.net.URL"/>
 <fullyQualifiedTypeName name="javax.swing.JOptionPane"/>
 <fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="myObject.obj_Person"/>
+<fullyQualifiedTypeName name="Mysql.main_Mysql"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="java.sql.ResultSet"/>
 </qualifiedTypeNameHistroy>

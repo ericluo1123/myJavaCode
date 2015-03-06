@@ -20,7 +20,7 @@ public class obj_Person {
 
 	}
 
-	obj_Person(String name) {
+	public obj_Person(String name) {
 		this.ChineseName = name;
 	}
 
