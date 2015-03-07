@@ -1,0 +1,235 @@
+package mysql;
+
+import java.net.URL;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.ErrorManager;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.Statement;
+import com.sun.org.apache.xalan.internal.xsltc.compiler.util.ErrorMessages;
+
+public class obj_MysqlTools {
+
+	// private static java.sql.Connection connection;
+	// private static Statement statement;
+	private static String databaseName = "";
+	private static String urlPath = "jdbc:mysql://localhost/";
+	private static String urlParam = "?useUnicode=true&characterEncoding=Big5";
+	private static String url = "jdbc:mysql://localhost/?useUnicode=true&characterEncoding=Big5";
+	private static String url2 = "jdbc:mysql://localhost/mytest?useUnicode=true&characterEncoding=Big5";
+	private static String user = "root";
+	private static String password = "mysql";
+	private static java.sql.Connection connection;
+	private static Statement statement;
+
+	/**
+	 * 連結到JDBC的驅動
+	 */
+	public static void connectionDriverJDBC() {
+		try {
+			// 註冊driver 連結JDBC資料庫驅動程式
+			Class.forName("com.mysql.jdbc.Driver");
+			JOptionPane.showMessageDialog(null,
+					"mysql driver installation is successful !!");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null,
+					"mysql driver installation failed !!");
+			System.exit(0);
+		}
+	}
+
+	/**
+	 * 連結到資料庫
+	 * 
+	 * @param databaseName
+	 *            要連結的資料庫名稱
+	 */
+	public static void connectionDatabase(String databaseName) {
+		// 取得connection
+		try {
+
+			connection = DriverManager.getConnection(urlPath + databaseName
+					+ urlParam, user, password);
+			JOptionPane.showMessageDialog(null, "connection " + databaseName
+					+ "is successful !");
+		} catch (SQLException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+			JOptionPane.showMessageDialog(null, "connection " + databaseName
+					+ "is failed !!");
+			System.exit(0);
+		}
+	}
+
+	/**
+	 * 建立資料庫的物件
+	 * 
+	 * @param databaseName
+	 *            要建立的資料庫名稱
+	 */
+	public static void createDatabase(String databaseName) {
+		try {
+
+			statement = (Statement) connection.createStatement();
+			statement.executeUpdate("CREATE DATABASE " + databaseName);
+			JOptionPane.showMessageDialog(null, "create " + databaseName
+					+ "database successful !");
+			statement.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			if (statement != null) {
+				JOptionPane.showMessageDialog(null, databaseName
+						+ "database Already exists");
+			} else {
+				JOptionPane.showMessageDialog(null, databaseName
+						+ "database Unable to start");
+			}
+		}
+	}
+
+	/**
+	 * 刪除資料庫的物件
+	 * 
+	 * @param databaseName
+	 *            要刪除的資料庫名稱
+	 */
+	public static void deleteDatabase(String databaseName) {
+		try {
+
+			statement = (Statement) connection.createStatement();
+			statement.executeUpdate("DROP DATABASE " + databaseName);
+			JOptionPane.showMessageDialog(null, "delete" + databaseName
+					+ "database successful !");
+			statement.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, databaseName
+					+ "database Does not exist !");
+		}
+	}
+
+	/**
+	 * 建立資料庫的表格
+	 * 
+	 * @param tableName
+	 *            要建立的表格名稱
+	 * @param fieldName
+	 *            要建立的欄位名稱
+	 * @param dataType
+	 *            要建位的資料類型
+	 */
+	public static void createTable(String tableName, String fieldName,
+			String dataType) {
+
+		try {
+
+			statement = (Statement) connection.createStatement();
+			statement.executeUpdate("CREATE TABLE " + tableName + "("
+					+ fieldName + " " + dataType + ");");
+
+			JOptionPane.showMessageDialog(null, "care table successful !");
+			statement.close();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Can not create tables !");
+			System.exit(0);
+		}
+	}
+
+	/**
+	 * 查詢選取資料庫中的資料
+	 * 
+	 * @param tableName
+	 *            要被查詢的表格名稱
+	 */
+	public static void selectTable(String tableName) {
+
+		ResultSet resultSet = null;
+		try {
+
+			statement = (Statement) connection.createStatement();
+			resultSet = statement.executeQuery("SELECT * FROM " + tableName);
+
+			System.out.println("acc_id");
+
+			while (resultSet.next()) {
+				System.out.println(resultSet.getString("acc_id"));
+			}
+			// JOptionPane.showMessageDialog(null, "care table successful !");
+			statement.close();
+			resultSet.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "Can not select tables !");
+			System.exit(0);
+		}
+	}
+
+	/**
+	 * 變更資料表格的物件
+	 */
+	public static void alterTable() {
+
+	}
+
+	/**
+	 * 新增資料到資料表中
+	 * 
+	 * @param tableName
+	 *            要被增加資料的表格名稱
+	 * @param data
+	 *            要增加的資料
+	 */
+	public static void insertData(String tableName, String data) {
+		try {
+			statement = (Statement) connection.createStatement();
+			statement.executeUpdate("INSERT INTO " + tableName
+					+ "(acc_id) VALUES('" + data + "');");
+			JOptionPane.showMessageDialog(null, "insert data successful !");
+			statement.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			JOptionPane.showMessageDialog(null, "insert data failed !");
+			System.exit(0);
+		}
+	}
+
+	/**
+	 * UPDATE 更改資料表中的資料
+	 */
+
+	/**
+	 * DELETE 刪除資料表中的資料
+	 */
+
+	/**
+	 * 建位欄位和資料型態
+	 * 
+	 * @param field
+	 *            要建立的欄位
+	 * @param datatype
+	 *            要建立的資料型態
+	 * @return table 建立好的欄位和資料型態
+	 */
+	public static String createField_Datatype(String field, String datatype) {
+		String table = null;
+		table += field + " " + datatype+"，";
+		return table;
+	}
+
+}

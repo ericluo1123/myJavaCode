@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="myObject.obj_Crypher"/>
-<fullyQualifiedTypeName name="java.awt.GridBagLayout"/>
 <fullyQualifiedTypeName name="java.awt.GridBagConstraints"/>
 <fullyQualifiedTypeName name="java.awt.Rectangle"/>
 <fullyQualifiedTypeName name="javax.swing.JRootPane"/>
@@ -60,4 +58,6 @@
 <fullyQualifiedTypeName name="Mysql.main_Mysql"/>
 <fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.sql.ResultSet"/>
+<fullyQualifiedTypeName name="myObject.obj_MathTools"/>
+<fullyQualifiedTypeName name="mysql.obj_MysqlTools"/>
 </qualifiedTypeNameHistroy>

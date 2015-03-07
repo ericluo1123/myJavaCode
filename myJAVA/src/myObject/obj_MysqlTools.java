@@ -27,7 +27,10 @@ public class obj_MysqlTools {
 	private static java.sql.Connection connection;
 	private static Statement statement;
 
-	public static void connectionDriver() {
+	/**
+	 * 連結到JDBC的驅動
+	 */
+	public static void connectionDriverJDBC() {
 		try {
 			// 註冊driver 連結JDBC資料庫驅動程式
 			Class.forName("com.mysql.jdbc.Driver");
@@ -42,8 +45,15 @@ public class obj_MysqlTools {
 		}
 	}
 
+	/**
+	 * 連結到資料庫
+	 * 
+	 * @param databaseName
+	 *            要連結的資料庫名稱
+	 */
 	public static void connectionDatabase(String databaseName) {
 		// 取得connection
+
 		try {
 
 			connection = DriverManager.getConnection(urlPath + databaseName
@@ -59,6 +69,12 @@ public class obj_MysqlTools {
 		}
 	}
 
+	/**
+	 * 建立資料庫的物件
+	 * 
+	 * @param databaseName
+	 *            要建立的資料庫名稱
+	 */
 	public static void createDatabase(String databaseName) {
 		connectionDatabase("");
 		try {
@@ -82,6 +98,12 @@ public class obj_MysqlTools {
 		}
 	}
 
+	/**
+	 * 刪除資料庫的物件
+	 * 
+	 * @param databaseName
+	 *            要刪除的資料庫名稱
+	 */
 	public static void deleteDatabase(String databaseName) {
 		connectionDatabase(databaseName);
 		try {
@@ -100,14 +122,23 @@ public class obj_MysqlTools {
 		}
 	}
 
-	public static void createTable(String tableName, String fieldName,
-			String dataType) {
+	/**
+	 * 建立資料庫的表格
+	 * 
+	 * @param tableName
+	 *            要建立的表格名稱
+	 * @param fieldName
+	 *            要建立的欄位名稱
+	 * @param dataType
+	 *            要建位的資料類型
+	 */
+	public static void createTable(String tableName, String field_datatype) {
 
 		try {
 
 			statement = (Statement) connection.createStatement();
 			statement.executeUpdate("CREATE TABLE " + tableName + "("
-					+ fieldName + " " + dataType + ");");
+					+ field_datatype + ");");
 
 			JOptionPane.showMessageDialog(null, "care table successful !");
 			statement.close();
@@ -120,6 +151,12 @@ public class obj_MysqlTools {
 		}
 	}
 
+	/**
+	 * 查詢選取資料庫中的資料
+	 * 
+	 * @param tableName
+	 *            要被查詢的表格名稱
+	 */
 	public static void selectTable(String tableName) {
 
 		ResultSet resultSet = null;
@@ -127,8 +164,6 @@ public class obj_MysqlTools {
 
 			statement = (Statement) connection.createStatement();
 			resultSet = statement.executeQuery("SELECT * FROM " + tableName);
-
-			System.out.println("acc_id");
 
 			while (resultSet.next()) {
 				System.out.println(resultSet.getString("acc_id"));
@@ -144,6 +179,21 @@ public class obj_MysqlTools {
 		}
 	}
 
+	/**
+	 * 變更資料表格的物件
+	 */
+	public static void alterTable() {
+
+	}
+
+	/**
+	 * 新增資料到資料表中
+	 * 
+	 * @param tableName
+	 *            要被增加資料的表格名稱
+	 * @param data
+	 *            要增加的資料
+	 */
 	public static void insertData(String tableName, String data) {
 		try {
 			statement = (Statement) connection.createStatement();
@@ -158,4 +208,28 @@ public class obj_MysqlTools {
 			System.exit(0);
 		}
 	}
+
+	/**
+	 * UPDATE 更改資料表中的資料
+	 */
+
+	/**
+	 * DELETE 刪除資料表中的資料
+	 */
+
+	/**
+	 * 建位欄位和資料型態
+	 * 
+	 * @param field
+	 *            要建立的欄位
+	 * @param datatype
+	 *            要建立的資料型態
+	 * @return table 建立好的欄位和資料型態
+	 */
+	public static String createField_Datatype(String field, String datatype) {
+		String table = "";
+		table += field + " " + datatype;
+		return table;
+	}
+
 }

@@ -1,9 +1,0 @@
-package myFrame;
-
-public class initJFrame {
-
-	
-	public void initJFrame(){
-		
-	}
-}

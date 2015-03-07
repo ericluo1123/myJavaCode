@@ -3,3 +3,10 @@
 1425518199064	Rename method 'doDriverTest'
 1425518291194	Rename method 'ConnectionDriver'
 1425518528672	Rename field 'con'
+1425689307717	Rename method 'connectionDriver'
+1425689392743	Rename method 'connectionDriverJDBC'
+1425689406777	Rename method 'connectionDriver'
+1425705710538	Move compilation unit
+1425707838108	Move compilation unit
+1425707841791	Move compilation unit
+1425707845909	Delete element

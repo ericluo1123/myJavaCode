@@ -1,7 +1,6 @@
 package Mysql;
 
 import myObject.obj_MysqlTools;
-import myObject.obj_Person;
 
 public class main_Mysql {
 
@@ -10,19 +9,30 @@ public class main_Mysql {
 		main_Mysql main_Mysql = new main_Mysql();
 	}
 
+	private String databaseName = "mytest";
+	private String tableName = "personal_data";
+	private String tableName1 = "table1";
+	private String tableName2 = "table2";
+	private String VARCHAR_10 = "VARCHAR(10)";
+	private String insertData = "aaa";
+	private String field_Datatype;
+
 	main_Mysql() {
 		// obj_Person person = new obj_Person("Eric");
+		field_Datatype = obj_MysqlTools.createField_Datatype("acc_id",
+				"VARCHAR(10)");
 
-		obj_MysqlTools.connectionDriver();
+		obj_MysqlTools.connectionDriverJDBC();
+		// obj_MysqlTools.createDatabase(databaseName);
+		// obj_MysqlTools.deleteDatabase(databaseName);
 
-		// obj_MysqlTools.createDatabase("mytest");
-		// obj_MysqlTools.deleteDatabase("mytest");
-
-		obj_MysqlTools.connectionDatabase("mytest");
-		// obj_MysqlTools.createTable("personal_data", "acc_id", "VARCHAR(10)");
-		obj_MysqlTools.insertData("personal_data", "aaa");
-		obj_MysqlTools.selectTable("personal_data");
+		obj_MysqlTools.connectionDatabase(databaseName);
+		// obj_MysqlTools.createTable(tableName, field_Datatype);
+		// obj_MysqlTools.insertData(tableName, insertData);
+		obj_MysqlTools.selectTable(tableName);
 
 		sample_Mysql sample_Mysql = new sample_Mysql();
+
+		System.out.println(field_Datatype);
 	}
 }
