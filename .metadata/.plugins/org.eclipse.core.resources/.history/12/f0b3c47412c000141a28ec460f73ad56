@@ -1,8 +1,0 @@
-package Layout;
-
-public class sample_GroupLayout {
-
-	sample_GroupLayout(){
-		
-	}
-}
